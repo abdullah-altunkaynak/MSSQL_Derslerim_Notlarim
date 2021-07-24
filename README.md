@@ -1,0 +1,42 @@
+# MSSQL_Derslerim_Notlarim
+DERS #1
+	#2.  Ünite Temel Bilgiler (1. Ünite Sözel) [1 - 42]
+	#3.  Ünite Sorgu Yazmak [47 - 52]
+	#4.  Ünite Sorgularda Koşul, Verileri Sıralamak [53 - 67]
+	#5.  Ünite Veri Tipleri ve Tip Çevirim İşlemleri [69 - 75]
+	#6.  Ünite Transact-SQL [77 - 78]
+	#7.  Ünite SQL Server Fonksiyonları [79 - 109]
+	#8.  Ünite Koşul Yapıları [111 - 115]
+	#9.  Ünite Join [117 - 130]
+	#10. Ünite Information Schema [131 - 136]
+	#11. Ünite Constraint, Identity, Çeşitli SQL Server Pencereleri [137 - 151]
+DERS #2
+	#12.  Ünite DML Insert, Update, Delete [153 - 184]
+	#13.  Ünite SQL Profiler [185 - 187]
+	#14.  Ünite SQL Snippets, Settings [189 - 198]
+	#15.  Ünite View ve Tablo Görünümleri [199 - 211]
+	#16.  Ünite Tables For DDL, Union, Dense Rank [215 - 237]
+	#17.  Ünite Union, Dense Rank [237 - 246]
+DERS #3
+	#18.  Ünite Stored Procedure [247 - 264]
+	#19.  Ünite Trigger [269 - 276]
+	#20.  Ünite Transaction [277 - 290]
+	#21.  Ünite Veritabanını Yedeklemek ve Geri Yüklemek [291 - 321]
+DERS #4
+	#22.  Ünite Agent [323 - 333]
+	#23.  Ünite Full Text Search [335 - 344]
+	#24.  Ünite Veri Göndermek ve Almak [345 - 352]
+	#25.  Ünite SQL Server Oturumları [353 - 357]
+	#26.  Ünite Visual Studio 2013 Anlaysis Services [359 - 392]
+	#27.  Ünite Visual Studio 2013 SQL Reporting Services [393 - 402]
+DERS #5
+	#28.  Ünite C# ve SQL Server [403 - 459]
+	#29.  Ünite ASP.NET ve SQL Server [465 - 506]
+	#30.  Ünite Excel ve SQL Server [507 - 531]
+DERS #6 
+	#31.  Ünite In Memory OLTP (Hekaton) [533 - 549]
+	#32.  Ünite Dynamic Data Masking [551 - 554]
+	#33.  Ünite Json Data [557 - 561]
+	#34.  Ünite Temporal Tables [563 - 568]
+	#35.  Ünite Always Encrypted [569 - 573]
+	#36.  Ünite Çeşitli Konular [575 - 583]
