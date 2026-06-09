@@ -1,21 +1,21 @@
-begin /*12.Ünite DML INSERT, UPDATE, DELETE*/
-select '12.Ünite';
+begin /*12.ï¿½nite DML INSERT, UPDATE, DELETE*/
+select '12.ï¿½nite';
 
 begin /*Design Mode - Dizayn Modu*/
 select 'Design Mode'
-/*Description - Açýklama
-	Dizayn modu Tablolar üzerinde yapýsal deðiþiklikler ve veri deðiþklikleri yapmamýza olanak saðlar. Bazen sorgu yazmak yerine
-küçük iþlemler için tablo ismine sað týklayarak Design Mode açýlabilmektedir.
+/*Description - Aï¿½ï¿½klama
+	Dizayn modu Tablolar ï¿½zerinde yapï¿½sal deï¿½iï¿½iklikler ve veri deï¿½iï¿½klikleri yapmamï¿½za olanak saï¿½lar. Bazen sorgu yazmak yerine
+kï¿½ï¿½ï¿½k iï¿½lemler iï¿½in tablo ismine saï¿½ tï¿½klayarak Design Mode aï¿½ï¿½labilmektedir.
 */
 end
 
 begin /*DML Insert*/
 select 'DML Insert'
-/* Description - Açýklama
-	Bir tabloya veri eklemek için kullanýlan bir sorgu türüdür.
+/* Description - Aï¿½ï¿½klama
+	Bir tabloya veri eklemek iï¿½in kullanï¿½lan bir sorgu tï¿½rï¿½dï¿½r.
 */
 
-/* How to Use This Command? - Bu Komut Nasýl Kullanýlýr?
+/* How to Use This Command? - Bu Komut Nasï¿½l Kullanï¿½lï¿½r?
 Insert INTO TableName(RowName, OtherRowName, ...)
 Values(ValueForRowName, ValueForOtherRowName, ...), (If you want to insert more than one data)
 */
@@ -26,11 +26,11 @@ Insert into Categories(CategoryName, Description)
 values('NewVariable1', 'Testing Insert into Command!');
 select * from Categories;
 
-/* Conditioned Insert Command - Þarta Baðlý Insert Komutu 
-	Belirli þartlar saðlanmasý dahilinde tabloya veri eklmek istenirse kullanýlýr.
+/* Conditioned Insert Command - ï¿½arta Baï¿½lï¿½ Insert Komutu 
+	Belirli ï¿½artlar saï¿½lanmasï¿½ dahilinde tabloya veri eklmek istenirse kullanï¿½lï¿½r.
 */
 
-/* Example Of Conditioned Insert Command: Eklenecek olan kategori hali hazýrda tabloda yoksa veri eklenecek.*/
+/* Example Of Conditioned Insert Command: Eklenecek olan kategori hali hazï¿½rda tabloda yoksa veri eklenecek.*/
 declare @CategoryNameVariable nvarchar(15) = 'NewVariable2';
 declare @DescriptionText nvarchar(30) = 'Testing Insert into Command!';
 if not exists(select CategoryName from Categories where CategoryName = @CategoryNameVariable)
@@ -40,21 +40,21 @@ else
 select 'This category already exists!' as 'Error!', * from Categories where CategoryName = @CategoryNameVariable; 
 
 /* Table Backuping with Insert Command - Insert Komutu ile Tablo Yedekleme 
-	SQL Server'da bir iþlem yaparken özellikle UPDATE veya DELETE komutlarý ile yanlýþ bir sorgu ile verilerimizi riske
-atabiliriz. Bu gibi durularda hýzlýca tablodaki verileri yedeklemek isteyebiliriz. Bunun için Insert into komutu kullanýlabilir.
-Warning - Uyarý
-	Bu yedekleme iþleminde tüm özellikler yedeklenmez. Sadece veriler yedeklenmektedir.
+	SQL Server'da bir iï¿½lem yaparken ï¿½zellikle UPDATE veya DELETE komutlarï¿½ ile yanlï¿½ï¿½ bir sorgu ile verilerimizi riske
+atabiliriz. Bu gibi durularda hï¿½zlï¿½ca tablodaki verileri yedeklemek isteyebiliriz. Bunun iï¿½in Insert into komutu kullanï¿½labilir.
+Warning - Uyarï¿½
+	Bu yedekleme iï¿½leminde tï¿½m ï¿½zellikler yedeklenmez. Sadece veriler yedeklenmektedir.
 
- * How to Use This Method? - Bu Yöntem Nasýl Kullanýlýr?
+ * How to Use This Method? - Bu Yï¿½ntem Nasï¿½l Kullanï¿½lï¿½r?
 Insert * into BackupTableName from BackupingTableName;
 */
 
 /* Bulk Insert - Toplu Insert 
-	Bir komut ile birçok veriyi ayný anda ekleyebilmek için kullanýlan bir yöntemdir. Pratikte Bulk Insert yöntemini, bir tablodan
-diðer tabloya veri aktarmak için kullanabiliriz.
+	Bir komut ile birï¿½ok veriyi aynï¿½ anda ekleyebilmek iï¿½in kullanï¿½lan bir yï¿½ntemdir. Pratikte Bulk Insert yï¿½ntemini, bir tablodan
+diï¿½er tabloya veri aktarmak iï¿½in kullanabiliriz.
 */
 
-/* How to Use This Method? - Bu Komut Nasýl Kullanýlýr? 
+/* How to Use This Method? - Bu Komut Nasï¿½l Kullanï¿½lï¿½r? 
 Insert into BackupTableName(ColumnName, OtherColumnName)(select ColumnName, OtherColumnName from BackupingTableName)
 */
 
@@ -62,17 +62,17 @@ end
 
 begin /*DML Update*/
 select 'DML Update'
-/* Description - Açýklama
-	Tabloda daha önceden var olan bir veriyi güncellemek için kullanýlýr. Bu komutu kullanýrken dikkat edilmesi gereken en önemli
-þey where komutudur. Çünkü where komutu ile þart yazmadan güncelleme yaparsak tüm tablo etkileneðinden ötürü verilerimiz riske
+/* Description - Aï¿½ï¿½klama
+	Tabloda daha ï¿½nceden var olan bir veriyi gï¿½ncellemek iï¿½in kullanï¿½lï¿½r. Bu komutu kullanï¿½rken dikkat edilmesi gereken en ï¿½nemli
+ï¿½ey where komutudur. ï¿½ï¿½nkï¿½ where komutu ile ï¿½art yazmadan gï¿½ncelleme yaparsak tï¿½m tablo etkileneï¿½inden ï¿½tï¿½rï¿½ verilerimiz riske
 girecektir.
 */
 
-/* How to Use This Command? - Bu Komut Nasýl Kullanýlýr?
+/* How to Use This Command? - Bu Komut Nasï¿½l Kullanï¿½lï¿½r?
 update TableName set (UpdatingRowName = newValue, ...) where Conditions
 */
 
-/* Example Of Update Command: Updating Data from Categories Table - Categories Tablosundan Veri Güncelleme */
+/* Example Of Update Command: Updating Data from Categories Table - Categories Tablosundan Veri Gï¿½ncelleme */
 use Northwind
 update Categories set CategoryName = 'NewVariable3', Description = 'Testing Update Command!' 
 where CategoryName = 'NewVariable2';
@@ -82,16 +82,16 @@ end
 
 begin /*DML Delete*/
 select 'DML Delete'
-/* Description - Açýklama
-	Tablodaki verileri silmek için kullanýlýr. Burada da update sorgusunda olduðu gibi where ifadesi kritik bir öneme sahiptir.
-Aksi halde tüm verilerimiz silinebilir.
-Warning - Uyarý
-	Delete sorgusu ile tablodan silinen column'larýn Identity özelliði var olan bir satýrý için(Örneðin Primary Key CategoryID)
-Identity deðeri kaldýðý yerden devam edecktir. Örn; son eklenen verinin CategoryID'si 9 olsun. Bu veri silindikten sonra yeni
-eklenen verinin CategoryID'si 10 olacaktýr. 9 deðil!
+/* Description - Aï¿½ï¿½klama
+	Tablodaki verileri silmek iï¿½in kullanï¿½lï¿½r. Burada da update sorgusunda olduï¿½u gibi where ifadesi kritik bir ï¿½neme sahiptir.
+Aksi halde tï¿½m verilerimiz silinebilir.
+Warning - Uyarï¿½
+	Delete sorgusu ile tablodan silinen column'larï¿½n Identity ï¿½zelliï¿½i var olan bir satï¿½rï¿½ iï¿½in(ï¿½rneï¿½in Primary Key CategoryID)
+Identity deï¿½eri kaldï¿½ï¿½ï¿½ yerden devam edecktir. ï¿½rn; son eklenen verinin CategoryID'si 9 olsun. Bu veri silindikten sonra yeni
+eklenen verinin CategoryID'si 10 olacaktï¿½r. 9 deï¿½il!
 */
 
-/* How to Use This Command? - Bu Komut Nasýl Kullanýlýr?
+/* How to Use This Command? - Bu Komut Nasï¿½l Kullanï¿½lï¿½r?
 delete from TableName where Conditions
 */
 
@@ -102,19 +102,19 @@ select * from Categories;
 
 begin /*Truncate Command*/
 select 'Truncate Command'
-/* Description - Açýklama
-	Bir tablodan tüm verileri silmek ve Identity deðerlerini sýfýrlamak için kullanýlýr.
+/* Description - Aï¿½ï¿½klama
+	Bir tablodan tï¿½m verileri silmek ve Identity deï¿½erlerini sï¿½fï¿½rlamak iï¿½in kullanï¿½lï¿½r.
 */
 
-/* How to Use This Command? - Bu Komut Nasýl Kullanýlýr.
+/* How to Use This Command? - Bu Komut Nasï¿½l Kullanï¿½lï¿½r.
 Truncate Table TableName;
 */
 
 end
 
 /* Delete Duplicate Data Method - Tekrar Eden Verileri Silme Metodu
-	Bazý durumlarda bir tabloya insert komutu ile veya Edit Top 200 Rows seçeneði ile tabloda bulunan bir veriyi ekleyebiliriz.
-Örn; bir kullanýcý hali hazýrda varken onun var olduðunu bilmeden ekleme yapabiliriz. Bu durumlarda bu yöntem kullanýlýr.
+	Bazï¿½ durumlarda bir tabloya insert komutu ile veya Edit Top 200 Rows seï¿½eneï¿½i ile tabloda bulunan bir veriyi ekleyebiliriz.
+ï¿½rn; bir kullanï¿½cï¿½ hali hazï¿½rda varken onun var olduï¿½unu bilmeden ekleme yapabiliriz. Bu durumlarda bu yï¿½ntem kullanï¿½lï¿½r.
 */
 
 /* Example Of Duplicate Data Method: Adding Duplicate Data to Categories and Deleting This Duplicate Data - Categories Tablosuna
@@ -132,31 +132,31 @@ end
 end
 go
 
-begin /*15.Ünite View ve Tablo Görünümleri*/
-select '13.Ünite'
-/* Description - Açýklama
-	Bir veya birden fazla tablodan, ihtiyaç duyulan verileri almamýza yarayan sanal tablolardýr. Normal þartlarda bir tablo sadece
-kendi verilerini tutabilirken, view birçok tablonun verilerini tutabilmektedir. View de tablolar gibi satýr ve sütunlardan 
-oluþur.
+begin /*15.ï¿½nite View ve Tablo Gï¿½rï¿½nï¿½mleri*/
+select '13.ï¿½nite'
+/* Description - Aï¿½ï¿½klama
+	Bir veya birden fazla tablodan, ihtiyaï¿½ duyulan verileri almamï¿½za yarayan sanal tablolardï¿½r. Normal ï¿½artlarda bir tablo sadece
+kendi verilerini tutabilirken, view birï¿½ok tablonun verilerini tutabilmektedir. View de tablolar gibi satï¿½r ve sï¿½tunlardan 
+oluï¿½ur.
 */
 
-/* View Properties - View Özellikleri
-	# Sanal Tablolar gibi düþünülebilir.
-	# View içerikleri sorgulanabilmektedir.
-	# View üzerinden DML iþlemleri yapýlabilir.
-	# View üzerinden yapýlan DML iþlemleri direkt olarak tablolara yansýtýlýr.
-	# View tablo/tablolara baðlý olarak çalýþýr. Böylece veri bütünlüðü korunmuþ olur.
-	# View ile tablolarýn veri eriþimini sýnýrlandýrabiliriz.
-	# Karmaþýk sorgu sonuçlarýna ulaþmak için view tablo olarak kullanýlabilðir.
-	# View ile tablo arasýnda iliþkisel bütünlük yoksa, view veri giriþini reddeder.
-	# View veri saklamaz. Tablodan veya birçok tablodan yapýlan sorgular neticesinde tabloya baðlý olarak çalýþýr.
-	# View tabloya baðlý çalýþtýðý için baðlý olduðu tablo silinir ise view hiçbir þey görüntülemez.
-	# View ile paramtre kullanýlamaz. Yani; koþul ifadesinde SQL Parametrelerini kullanamayýz.
-	# View ile view üzerinden parametre alabilen bir sorgu yazmak mümkündür. Bunun için SQL Procedure kullanýlýr.
-	# View için index tanýmlamak da mümkündür.
+/* View Properties - View ï¿½zellikleri
+	# Sanal Tablolar gibi dï¿½ï¿½ï¿½nï¿½lebilir.
+	# View iï¿½erikleri sorgulanabilmektedir.
+	# View ï¿½zerinden DML iï¿½lemleri yapï¿½labilir.
+	# View ï¿½zerinden yapï¿½lan DML iï¿½lemleri direkt olarak tablolara yansï¿½tï¿½lï¿½r.
+	# View tablo/tablolara baï¿½lï¿½ olarak ï¿½alï¿½ï¿½ï¿½r. Bï¿½ylece veri bï¿½tï¿½nlï¿½ï¿½ï¿½ korunmuï¿½ olur.
+	# View ile tablolarï¿½n veri eriï¿½imini sï¿½nï¿½rlandï¿½rabiliriz.
+	# Karmaï¿½ï¿½k sorgu sonuï¿½larï¿½na ulaï¿½mak iï¿½in view tablo olarak kullanï¿½labilï¿½ir.
+	# View ile tablo arasï¿½nda iliï¿½kisel bï¿½tï¿½nlï¿½k yoksa, view veri giriï¿½ini reddeder.
+	# View veri saklamaz. Tablodan veya birï¿½ok tablodan yapï¿½lan sorgular neticesinde tabloya baï¿½lï¿½ olarak ï¿½alï¿½ï¿½ï¿½r.
+	# View tabloya baï¿½lï¿½ ï¿½alï¿½ï¿½tï¿½ï¿½ï¿½ iï¿½in baï¿½lï¿½ olduï¿½u tablo silinir ise view hiï¿½bir ï¿½ey gï¿½rï¿½ntï¿½lemez.
+	# View ile paramtre kullanï¿½lamaz. Yani; koï¿½ul ifadesinde SQL Parametrelerini kullanamayï¿½z.
+	# View ile view ï¿½zerinden parametre alabilen bir sorgu yazmak mï¿½mkï¿½ndï¿½r. Bunun iï¿½in SQL Procedure kullanï¿½lï¿½r.
+	# View iï¿½in index tanï¿½mlamak da mï¿½mkï¿½ndï¿½r.
 */
 
-/* How to Use This Object? - Bu Nesne Nasýl Kullanýlýr?
+/* How to Use This Object? - Bu Nesne Nasï¿½l Kullanï¿½lï¿½r?
 create View ViewName as Select Columns from TableName (where if you have condition) 
 */
 
@@ -164,18 +164,18 @@ create View ViewName as Select Columns from TableName (where if you have conditi
 use Northwind
 Execute('Create View CatView as select * from Categories');
 select * from dbo.CatView;
-/* Create view komutu sorgudaki ilk ve son komut olmasý gereklidir. Yani temiz bir sql sorgusu veya Execute metodu ile 
-çalýþtýrýlmalýdýr. Ya da go ifadesi ile biri create ifadesinin üstüne diðeri ise create ifadesinin altýna olmak üzere temiz
-bir sql sorgusu elde edilebilir. Dolayýsýyla create view ifadesi çalýþacaktýr.*/
+/* Create view komutu sorgudaki ilk ve son komut olmasï¿½ gereklidir. Yani temiz bir sql sorgusu veya Execute metodu ile 
+ï¿½alï¿½ï¿½tï¿½rï¿½lmalï¿½dï¿½r. Ya da go ifadesi ile biri create ifadesinin ï¿½stï¿½ne diï¿½eri ise create ifadesinin altï¿½na olmak ï¿½zere temiz
+bir sql sorgusu elde edilebilir. Dolayï¿½sï¿½yla create view ifadesi ï¿½alï¿½ï¿½acaktï¿½r.*/
 
 /* Example Of Alter View */
 use Northwind
 /*
-Warning - Uyarý
-	Order By ifadesi create/alter view iþlemindeki select sorgusunda direkt olarak kullanýlamamaktadýr. TOP, OFFSET gibi ifadeler
-ile birlikte kullanýlabilir. Ayrýca view select sorgusunda da kullanýlabilmektedir.
+Warning - Uyarï¿½
+	Order By ifadesi create/alter view iï¿½lemindeki select sorgusunda direkt olarak kullanï¿½lamamaktadï¿½r. TOP, OFFSET gibi ifadeler
+ile birlikte kullanï¿½labilir. Ayrï¿½ca view select sorgusunda da kullanï¿½labilmektedir.
 */
-Execute('Create View CatView as (select top (select Count(*) from Employees) * from Employees order by City)'); /*View güncelleme*/
+Execute('Create View CatView as (select top (select Count(*) from Employees) * from Employees order by City)'); /*View gï¿½ncelleme*/
 select * from dbo.CatView;
 
 /* Example Of Drop View */
@@ -188,9 +188,9 @@ Update CatView set CategoryName = 'NewVariable1', Description = 'Testing Update 
 where CategoryName = 'NewVariable3';
 select COUNT(*) from Categories;
 
-/* View Control with 'With Check Option' - 'With Check Option' ile View Kontrölü
-	Bir View oluþurken where ifadesi ile belirtilen koþul dahilinde oluþan View o veri listesini içerir. Sonuç olarak þarta göre
-View oluþturabiliriz. Fakat extra olarak Create View ifadesinin en alt kýsmýna With Check Option ifadesini eklememiz gerekmektedir.
+/* View Control with 'With Check Option' - 'With Check Option' ile View Kontrï¿½lï¿½
+	Bir View oluï¿½urken where ifadesi ile belirtilen koï¿½ul dahilinde oluï¿½an View o veri listesini iï¿½erir. Sonuï¿½ olarak ï¿½arta gï¿½re
+View oluï¿½turabiliriz. Fakat extra olarak Create View ifadesinin en alt kï¿½smï¿½na With Check Option ifadesini eklememiz gerekmektedir.
 */
 
 /* Example Of With Check Option */
@@ -204,12 +204,12 @@ select * from CatView;
 end
 go
 
-begin /*16. Ünite Tables For DDL*/
-select '16. Ünite'
-/* Description - Açýklama
-	Bir tablo oluþturmak için Object Explorer sekmesi üzerinden mouse ile veri eklenebileceði gibi DDL ismini verdiðimiz T-SQL
-komutlarý ile de tablo oluþturabiliriz. DDL ile Create Table diyerek tablo oluþturabilir, Alter Table diyerek güncelleyebilir,
-Drop Table diyerek tabloyu kaldýrabilir ve Create Index diyerek tabloda index oluþturabiliriz.
+begin /*16. ï¿½nite Tables For DDL*/
+select '16. ï¿½nite'
+/* Description - Aï¿½ï¿½klama
+	Bir tablo oluï¿½turmak iï¿½in Object Explorer sekmesi ï¿½zerinden mouse ile veri eklenebileceï¿½i gibi DDL ismini verdiï¿½imiz T-SQL
+komutlarï¿½ ile de tablo oluï¿½turabiliriz. DDL ile Create Table diyerek tablo oluï¿½turabilir, Alter Table diyerek gï¿½ncelleyebilir,
+Drop Table diyerek tabloyu kaldï¿½rabilir ve Create Index diyerek tabloda index oluï¿½turabiliriz.
 */
 
 /* Example Of Create Table */
@@ -230,16 +230,16 @@ Create Table TestUserTable(
 
 Insert into TestUserTable(UserName, UserSurname, BirthDate, TC, Sex)
 Values
-	('Abdullah', 'ALTUNKAYNAK', null, '18971448530', 1),
-	('Hakan', 'ÇELEBÝ', '26.08.2000', '14501321120', 1),
-	('Halil Emre', 'BALABAN', '04.06.2001', '10991407078', 1),
-	('Furkan', 'YAVUZASLAN', '26.02.2001', '56419210806', 1),
-	('Eslem Nisa', 'TÜRK', '01.05.2015', '32521051888', 0),
-	('Zeynep Yaren', 'ALTUNKAYNAK', '22.01.2014', '18952245310', 0);
+	('Abdullah', 'ALTUNKAYNAK', null, '111', 1),
+	('Hakan', 'ï¿½ELEBï¿½', '26.08.2000', '222', 1),
+	('Halil Emre', 'BALABAN', '04.06.2001', '333', 1),
+	('Furkan', 'YAVUZASLAN', '26.02.2001', '444', 1),
+	('Eslem Nisa', 'Tï¿½RK', '01.05.2015', '555', 0),
+	('Zeynep Yaren', 'ALTUNKAYNAK', '22.01.2014', '666', 0);
 
-select UserName Ýsim, UserSurname Soyisim, BirthDate 'Doðum Tarihi', TC, 
+select UserName ï¿½sim, UserSurname Soyisim, BirthDate 'Doï¿½um Tarihi', TC, 
 case Sex 
-when 0 then 'Kadýn'
+when 0 then 'Kadï¿½n'
 when 1 then 'Erkek'
 end 'Cinsiyet'
 from TestUserTable
@@ -257,11 +257,11 @@ Drop Constraint ck_test;*/
 end
 go
 
-begin /*17. Ünite Unýon, Dense Rank*/
-select '17. Ünite'
-/* Description - Açýklama
-	Genel olarak sorgularý birleþtirerek kullanmamýza olanak saðlar. Birleþtirn verilerin sütun sayýlarý ve veri tipleri ayný
-olmalýdýr.
+begin /*17. ï¿½nite Unï¿½on, Dense Rank*/
+select '17. ï¿½nite'
+/* Description - Aï¿½ï¿½klama
+	Genel olarak sorgularï¿½ birleï¿½tirerek kullanmamï¿½za olanak saï¿½lar. Birleï¿½tirn verilerin sï¿½tun sayï¿½larï¿½ ve veri tipleri aynï¿½
+olmalï¿½dï¿½r.
 */
 
 /* Example Of Union All Operator */

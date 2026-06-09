@@ -1,61 +1,54 @@
 /*-Temel Bilgiler-
 Database Nedir?
-	Veritabanı sistematik olarak verilere erişilebilen hafıza üniteleridir. Başlarda veresiye defteri gibi veritabanları
-kullanılırken dijital dünya için çeşitli firmalar tarafından veritabanları geliştirilmiştir. Genel olarak bu veritabanları
-tablolama mantığına dayanarak veri barındırsa da, json veya txt tipinde de veriler hala tutulmaktadır. Tablolama mantığı ile
-veritabanı bize daha az alan ile daha fazla veri tutmayı ve verilere daha kolay ulaşmayı sağlar.
-MSSQL
-	Microsoft tarafından geliştirilmiş ve gelişmiş uygulama lisansları bulunan veritabanıdır. Veritabanı desteklenen tüm diller
-üzerinden erişim veya geliştirme yapılabilmektedir. Veritabanı söylediğimiz gibi tablolardan, tablolar ise sütünlardan oluşur.
-Bu sütunlara column/kolon ismi verilir. Bu columnların ise ismi, veri tipi ve nullable yani boş geçilebilirlik bilgisi boolean
-bir biçimde tutlur. 
-SQL Sorulama Dili
-	Veritabanından veri sorgulamak, veri eklemek, veri silmek, veri güncellemek, tablo oluşturmak, column oluşturmak... gibi birçok
-işlevi yerine getirmemizi sağlar. Açılımı Structured Query Language yani Yapılandırılmış Sorgulama Dilidir. Microsoft SQL Server
-ANSI standartlarında SQL sorgulama dilini kullanmaktadır. Oracle ise PL/SQL sorgulama dilini kullanmaktadır.
+	VeritabanÄ±, verilerin yapÄ±landÄ±rÄ±lmÄ±ÅŸ bir ÅŸekilde depolandÄ±ÄŸÄ±, yÃ¶netildiÄŸi ve sorgulandÄ±ÄŸÄ± bir sistemdir. Geleneksel olarak veresiye defterleri gibi manuel yÃ¶ntemler kullanÄ±lÄ±rken, dijitalleÅŸme ile birlikte Ã§eÅŸitli veritabanÄ± yÃ¶netim sistemleri (DBMS) geliÅŸtirilmiÅŸtir.
+	Ä°liÅŸkisel VeritabanlarÄ± (RDBMS): Verileri satÄ±r ve sÃ¼tunlardan oluÅŸan tablolarda saklar. Bu yapÄ±, veri tekrarÄ±nÄ± azaltÄ±r, veri bÃ¼tÃ¼nlÃ¼ÄŸÃ¼nÃ¼ saÄŸlar ve verilere kolay eriÅŸim imkanÄ± sunar. MSSQL, MySQL, PostgreSQL ve Oracle bu tÃ¼rÃ¼n popÃ¼ler Ã¶rnekleridir.
+	NoSQL VeritabanlarÄ±: Tablo yapÄ±sÄ±na baÄŸlÄ± kalmayan, esnek veri modelleri sunan veritabanlarÄ±dÄ±r. Belge (JSON, XML), anahtar-deÄŸer, sÃ¼tun ailesi veya graf gibi farklÄ± veri modellerini desteklerler. Ã–zellikle bÃ¼yÃ¼k veri (Big Data) ve gerÃ§ek zamanlÄ± uygulamalarda tercih edilirler. MongoDB, Cassandra, Redis ve Neo4j popÃ¼ler NoSQL veritabanlarÄ±dÄ±r.
+	Bulut VeritabanlarÄ± (Cloud Databases): Amazon Web Services (AWS), Microsoft Azure ve Google Cloud gibi bulut platformlarÄ± Ã¼zerinde Ã§alÄ±ÅŸan, Ã¶lÃ§eklenebilirlik, esneklik ve yÃ¶netilen hizmet avantajlarÄ± sunan veritabanlarÄ±dÄ±r. Ã–rnek olarak Azure SQL Database, Amazon RDS ve Google Cloud SQL verilebilir.
+MSSQL (Microsoft SQL Server)
+	Microsoft tarafÄ±ndan geliÅŸtirilen, kurumsal dÃ¼zeyde Ã¶zellikler ve geliÅŸmiÅŸ lisanslama seÃ§enekleri sunan bir iliÅŸkisel veritabanÄ± yÃ¶netim sistemidir (RDBMS). .NET, Java, Python gibi birÃ§ok programlama dili Ã¼zerinden eriÅŸilebilir ve yÃ¶netilebilir. VeritabanÄ±, tablolardan; tablolar ise sÃ¼tunlardan (kolon) oluÅŸur. Her sÃ¼tunun bir adÄ±, veri tipi, ve boÅŸ geÃ§ilip geÃ§ilemeyeceÄŸini (nullable) belirten bir Ã¶zelliÄŸi bulunur. SQL Server, son sÃ¼rÃ¼mleriyle (SQL Server 2019, 2022 ve Azure SQL) JSON veri desteÄŸi, makine Ã¶ÄŸrenmesi servisleri ve bÃ¼yÃ¼k veri kÃ¼meleri gibi modern yetenekler de kazanmÄ±ÅŸtÄ±r.
+SQL Sorgulama Dili
+	AÃ§Ä±lÄ±mÄ± "Structured Query Language" yani "YapÄ±landÄ±rÄ±lmÄ±ÅŸ Sorgulama Dili" olan SQL, veritabanÄ±ndan veri eklemek, silmek, gÃ¼ncellemek, sorgulamak, tablo ve diÄŸer veritabanÄ± nesnelerini oluÅŸturmak gibi iÅŸlemleri gerÃ§ekleÅŸtirmemizi saÄŸlayan standart bir dildir. Microsoft SQL Server, T-SQL (Transact-SQL) adÄ±nda, standart SQL'e ek olarak prosedÃ¼rel programlama, yerel deÄŸiÅŸkenler ve ek fonksiyonlar iÃ§eren bir lehÃ§e kullanÄ±r. Oracle ise PL/SQL adÄ±nda kendi SQL lehÃ§esini kullanÄ±r.
 SQL SERVER
-	Microsoft tarafından geliştirilmiş Veritabanı sunucu yazılımıdır. SQL Server 1433 numaralı portu dinleyerek uzak veya yerel
-ağdan veritabanı bağlantılarına izin verir.
-DATABASE ÇÖZÜMLERİ
-	Veritabanı çözümleri OLTP(Online Transaction Processing) ve OLAP(Online Analytical Processing) olmak üzere ikiye ayrılır.
-	#OLTP
-		Kullanıcıların veri ekledikleri, sildikleri veya güncelledikleri sistemlerdir. Çok sayıda kullanıcıya işlem desteği sunar.
-	#OLAP
-		Veriler üzerinde analiz yapmak ve veri okumak amaçlı kurulan sistemlerdir.
-SERVER TYPE
-	#Database Engine
-		İlişkisel veri tabanları oluşturarak gerçek zamanlı veri işlememize olanak sağlar. Verileri yöneterek güvenliği sağlar.
-	SQL Profile sayesinde sunucuda gerçekleştirilen olaylar izlenebilmektedir.
-	#Analysis Services
-		Verilerin hızlıca analiz edilmesi için çözümler sunar. OLAP özelliklerinden faydalanır.
-	#Reporting Services
-		SQL Server için raporlama hizmeti sunar. Kullanıma hazır araçları ile raporları kolay ve hızlı biçimde oluşturulmasını
-	sağlar.
-	#Integration Services
-		Verilerin taşınmasını sağlayan server tipidir.
-SYSTEM DATABASE
-	SQL Serverin ilk kurulumunda Master, Model, TempDb ve Msdb olmak üzere 4 adet veritabanının System Databases klasörü altında
-oluşturulduğunu görürüz. Bu Database'ler
-	#Master: Sql Server'in çalışabilmesi için(Kullanıcı tanımları ve temel bilgiler) gerekli olan yapıları barındırır.
-	#Model: Kullanıcı tarafından yeni oluşturulan veritabanları için örnek sağlar.
-	#TempDb: Geçiçi olarak kullanılan verilerin tutulmasını sağlar.
-	#Msdb: Tetikleme işlemleri için gerekli bilgiler burada saklanır. Yani zamanlanmış görevler ve bilgileri barındırır.
-NORMALIZATION RULES
-	Söylediğimiz gibi tablolama mantığı ile çalışan veritabanları performanslı, hızlı ve veri erişimleri basittir. Bunlar için
-bazı maximum faydayı elde etmek için bazı normalizasyon kuralları vardır.
-	#: Tablolarda tekrarlanan verilerden kaçılmalıdır.
-	#: Erişim için kilit pozisyonda bulunan veriler Primary Key olarak tanımlanmalı eğer kilit pozisyonda bulunan bir veri yok ise
-	ID isimli bir kolon oluşturularak Primary Key olarak tanımlanmalıdır.
-	#: Key tanımlaması yapılmayan bir column ile yine key tanımlaması yapılmamış bir column ilişkide olmamalıdır.
-	ÖRNEK 1 BAŞLIĞI İLE SORGU KODLARI VERİLMİŞ OLUP VERİTABANI DersOrnekleri İÇERİSİNDEKİ Ornek1Diagram 
+	Microsoft tarafÄ±ndan geliÅŸtirilmiÅŸ bir veritabanÄ± sunucu yazÄ±lÄ±mÄ±dÄ±r. VarsayÄ±lan olarak 1433 numaralÄ± TCP portunu dinleyerek yerel veya uzak aÄŸlardan gelen veritabanÄ± baÄŸlantÄ± isteklerini kabul eder ve yÃ¶netir.
+DATABASE Ã‡Ã–ZÃœMLERÄ°
+	VeritabanÄ± Ã§Ã¶zÃ¼mleri temel olarak OLTP (Online Transaction Processing) ve OLAP (Online Analytical Processing) olmak Ã¼zere ikiye ayrÄ±lÄ±r.
+	#OLTP (Ã‡evrimiÃ§i Ä°ÅŸlemsel Veri Ä°ÅŸleme)
+		KullanÄ±cÄ±larÄ±n sÄ±k sÄ±k veri eklediÄŸi, sildiÄŸi veya gÃ¼ncellediÄŸi, kÄ±sa ve hÄ±zlÄ± iÅŸlemlerin Ã¶n planda olduÄŸu sistemlerdir. E-ticaret siteleri, bankacÄ±lÄ±k uygulamalarÄ± gibi sistemler OLTP'ye Ã¶rnektir. Ã‡ok sayÄ±da kullanÄ±cÄ±ya eÅŸ zamanlÄ± iÅŸlem desteÄŸi sunar.
+	#OLAP (Ã‡evrimiÃ§i Analitik Veri Ä°ÅŸleme)
+		BÃ¼yÃ¼k miktardaki veriler Ã¼zerinde analiz yapmak, raporlar oluÅŸturmak ve iÅŸ zekasÄ± (Business Intelligence) amaÃ§lÄ± kurulan sistemlerdir. Veri ambarlarÄ± (Data Warehouse) bu tÃ¼r sistemlere Ã¶rnektir. Genellikle okuma yoÄŸun Ã§alÄ±ÅŸÄ±rlar.
+SERVER TYPE (SQL Server Servisleri)
+	#Database Engine (VeritabanÄ± Motoru)
+		Ä°liÅŸkisel veritabanlarÄ± oluÅŸturmayÄ±, verileri gÃ¼venli bir ÅŸekilde depolamayÄ± ve yÃ¶netmeyi saÄŸlayan temel servistir. SQL Server'Ä±n kalbidir.
+	#Analysis Services (SSAS)
+		OLAP ve veri madenciliÄŸi Ã§Ã¶zÃ¼mleri sunar. BÃ¼yÃ¼k veri kÃ¼melerini hÄ±zlÄ± bir ÅŸekilde analiz etmek ve iÅŸ zekasÄ± raporlarÄ± iÃ§in kÃ¼pler (cubes) oluÅŸturmak amacÄ±yla kullanÄ±lÄ±r.
+	#Reporting Services (SSRS)
+		SQL Server iÃ§in kapsamlÄ± bir raporlama platformu sunar. KullanÄ±ma hazÄ±r araÃ§larla kolay ve hÄ±zlÄ± bir ÅŸekilde statik veya interaktif raporlar oluÅŸturulmasÄ±nÄ± saÄŸlar.
+	#Integration Services (SSIS)
+		FarklÄ± veri kaynaklarÄ± arasÄ±nda veri taÅŸÄ±ma, dÃ¶nÃ¼ÅŸtÃ¼rme ve yÃ¼kleme (ETL - Extract, Transform, Load) iÅŸlemlerini otomatikleÅŸtirmek iÃ§in kullanÄ±lan bir servistir.
+	#Extended Events (GeniÅŸletilmiÅŸ Olaylar)
+		SQL Server Ã¼zerinde gerÃ§ekleÅŸen olaylarÄ± izlemek ve performans sorunlarÄ±nÄ± teÅŸhis etmek iÃ§in kullanÄ±lan modern ve hafif bir sistemdir. Eski bir araÃ§ olan SQL Profiler'Ä±n yerini almÄ±ÅŸtÄ±r.
+SYSTEM DATABASE (Sistem VeritabanlarÄ±)
+	SQL Server kurulumunda, sistemin Ã§alÄ±ÅŸmasÄ± iÃ§in gerekli olan Master, Model, TempDb ve Msdb adÄ±nda 4 adet sistem veritabanÄ± otomatik olarak oluÅŸturulur.
+	#Master: SQL Server'Ä±n kullanÄ±cÄ± hesaplarÄ±, sunucu yapÄ±landÄ±rmalarÄ±, veritabanÄ± bilgileri gibi tÃ¼m sistem dÃ¼zeyindeki meta verilerini barÄ±ndÄ±rÄ±r. Bu veritabanÄ± olmadan SQL Server Ã§alÄ±ÅŸamaz.
+	#Model: Yeni oluÅŸturulacak tÃ¼m kullanÄ±cÄ± veritabanlarÄ± iÃ§in bir ÅŸablon gÃ¶revi gÃ¶rÃ¼r. Bir veritabanÄ± oluÅŸturulduÄŸunda, Model veritabanÄ±nÄ±n bir kopyasÄ± alÄ±nÄ±r.
+	#TempDb: GeÃ§ici tablolar, geÃ§ici deÄŸiÅŸkenler, sÄ±ralama (sorting) ve birleÅŸtirme (joining) gibi iÅŸlemler iÃ§in kullanÄ±lan geÃ§ici verilerin tutulduÄŸu yerdir. SQL Server her yeniden baÅŸlatÄ±ldÄ±ÄŸÄ±nda sÄ±fÄ±rlanÄ±r.
+	#Msdb: SQL Server Agent servisinin kullandÄ±ÄŸÄ± veritabanÄ±dÄ±r. ZamanlanmÄ±ÅŸ gÃ¶revler (jobs), uyarÄ±lar (alerts), yedekleme ve geri yÃ¼kleme geÃ§miÅŸi gibi bilgileri saklar.
+NORMALIZATION RULES (Normalizasyon KurallarÄ±)
+	VeritabanÄ± tasarÄ±mÄ±nda performansÄ± artÄ±rmak, veri tekrarÄ±nÄ± Ã¶nlemek ve veri bÃ¼tÃ¼nlÃ¼ÄŸÃ¼nÃ¼ saÄŸlamak iÃ§in uygulanan bir dizi kuraldÄ±r.
+	#: Tablolarda tekrarlanan veri gruplarÄ±ndan kaÃ§Ä±nÄ±lmalÄ±dÄ±r. Her bir hÃ¼cre atomik (bÃ¶lÃ¼nemez) bir deÄŸer iÃ§ermelidir (1. Normal Form - 1NF).
+	#: Birincil anahtara (Primary Key) tam olarak baÄŸÄ±mlÄ± olmayan sÃ¼tunlar ayrÄ± bir tabloda tutulmalÄ±dÄ±r (2. Normal Form - 2NF).
+	#: Anahtar olmayan bir sÃ¼tun, baÅŸka bir anahtar olmayan sÃ¼tuna baÄŸlÄ± olmamalÄ±dÄ±r (3. Normal Form - 3NF).
+	#: EriÅŸim iÃ§in kilit pozisyonda bulunan ve veriyi benzersiz ÅŸekilde tanÄ±mlayan sÃ¼tun(lar) Primary Key olarak tanÄ±mlanmalÄ±dÄ±r. EÄŸer doÄŸal bir anahtar yoksa, genellikle 'ID' gibi otomatik artan bir sayÄ±sal sÃ¼tun Primary Key olarak kullanÄ±lÄ±r.
+	#: Anahtar olmayan bir sÃ¼tun ile baÅŸka bir anahtar olmayan sÃ¼tun arasÄ±nda doÄŸrudan bir iliÅŸki kurulmamalÄ±dÄ±r. Ä°liÅŸkiler genellikle Primary Key ve Foreign Key Ã¼zerinden kurulur.
+	Ã–RNEK 1 BAÅLIÄI Ä°LE SORGU KODLARI VERÄ°LMÄ°Å OLUP VERÄ°TABANI DersOrnekleri Ä°Ã‡ERÄ°SÄ°NDEKÄ° Ornek1Diagram 
 */
 
-															/*ÖRNEK 1 START*/
+															/*Ã–RNEK 1 START*/
 /*
-	start - end arasındaki komutlar çalıştırılınca görülecek olan Süleyman UZUN isimli kişinin birden fazla maili olduğu için
-Süleyman UZUN kişisinin İsim, Soyisim ve Doğum Tarihi verilerinin tekrarladığıdır. Dolayısıyla Normalizasyon Kurallarına 
-uymayan bir tablo mantığıdır. Daha sonraki start - end arasındaki komutlar çalıştırılınca verilerin tekrar etmediği ve gerekli
-komutlar ile Süleyman UZUN kişisinin maillerine ulaşabilmekteyiz.
+	start - end arasÄ±ndaki komutlar Ã§alÄ±ÅŸtÄ±rÄ±lÄ±nca gÃ¶rÃ¼lecek olan SÃ¼leyman UZUN isimli kiÅŸinin birden fazla maili olduÄŸu iÃ§in
+SÃ¼leyman UZUN kiÅŸisinin Ä°sim, Soyisim ve DoÄŸum Tarihi verilerinin tekrarladÄ±ÄŸÄ±dÄ±r. DolayÄ±sÄ±yla Normalizasyon KurallarÄ±na 
+uymayan bir tablo mantÄ±ÄŸÄ±dÄ±r. Daha sonraki start - end arasÄ±ndaki komutlar Ã§alÄ±ÅŸtÄ±rÄ±lÄ±nca verilerin tekrar etmediÄŸi ve gerekli
+komutlar ile SÃ¼leyman UZUN kiÅŸisinin maillerine ulaÅŸabilmekteyiz.
 */
 /*start*/
 use DersOrnekleri
@@ -65,624 +58,556 @@ select * from YanlisNormalizasyon;
 /*start*/
 use DersOrnekleri
 go
-select * from Mailler where UserID = (select ID from DogruNormalizasyonKisiler where DogruNormalizasyonKisiler.Name = 'Süleyman'
+select * from Mailler where UserID = (select ID from DogruNormalizasyonKisiler where DogruNormalizasyonKisiler.Name = 'SÃ¼leyman'
 and DogruNormalizasyonKisiler.Surname = 'UZUN');
 /*end*/
 /*
-	Görüldüğü üzere bir adet kişeler tablosu oluşturarak ve bu tablonun içine isim soyisim bilgilerinin yanı sıra mail adresi
-bilgisini de eklediğimiz zaman verilerin tekrarlanması gibi bir sorun ile karşılaşıyoruz. Bunun sebebi ise bir kişinin birden
-fazla mail adresine sahip olabilmesidir. Ayrıca bir mail adresi birden fazla kişiye ait olabilmesi mümkün değildir. Burada 1'e bir
-ilişki vardır. Bu yüzden kişiler tablosunu oluşturup bir column'a primary key verip daha sonra mailler tablosu içerisinde 
-UserID column ile bağladık ve bu sayede tekrar eden verilerden kurtulduk. Yukardaki örnek sorguyu Türkçe olarak okursak
-"Mailler tablosundan tüm columnları eğer UserID columnu DogruNormalizasyonKisiler tablosundaki name ve surname columları süleyman
-ve uzun olan kişinin ID si ile uyumluysa göster." şeklinde okunur.
+	GÃ¶rÃ¼ldÃ¼ÄŸÃ¼ Ã¼zere bir adet kiÅŸiler tablosu oluÅŸturarak ve bu tablonun iÃ§ine isim soyisim bilgilerinin yanÄ± sÄ±ra mail adresi
+bilgisini de eklediÄŸimiz zaman verilerin tekrarlanmasÄ± gibi bir sorun ile karÅŸÄ±laÅŸÄ±yoruz. Bunun sebebi ise bir kiÅŸinin birden
+fazla mail adresine sahip olabilmesidir. AyrÄ±ca bir mail adresi birden fazla kiÅŸiye ait olabilmesi mÃ¼mkÃ¼n deÄŸildir. Burada 1'e Ã§ok
+iliÅŸki vardÄ±r. Bu yÃ¼zden kiÅŸiler tablosunu oluÅŸturup bir column'a primary key verip daha sonra mailler tablosu iÃ§erisinde 
+UserID column ile baÄŸladÄ±k ve bu sayede tekrar eden verilerden kurtulduk. Yukardaki Ã¶rnek sorguyu TÃ¼rkÃ§e olarak okursak
+"Mailler tablosundan tÃ¼m columnlarÄ± eÄŸer UserID columnu DogruNormalizasyonKisiler tablosundaki name ve surname columlarÄ± sÃ¼leyman
+ve uzun olan kiÅŸinin ID si ile uyumluysa gÃ¶ster." ÅŸeklinde okunur.
 */
-															/*ÖRNEK 1 END*/
+															/*Ã–RNEK 1 END*/
 /*
-İLİŞKİSEL VERİ TABANI
-	Söylediğimiz gibi veritabanının daha performanslı olması ve verilerin tekrarının önlenmesi için ilişkilere ihtiyaç duyarız.
-İlişkiler Bire->Bir, Bire->Çok ve Çoka->Çok olmak üzere üçe ayrılır.
-	Bire->Bir ilişki
-		Örneğin bir kişinin doğum yeri sadece bir tane şehir olabilir. Bu yüzden plaka numaraları ID column'u ve bu column
-	primary key olarak ayarlanırsa ve kişiler tablosunda Plaka columnu ile ilişkili olursa buna 1->1 ilişki denir.
-	Bire->Çok ilişki
-		Bunu açıklamaya en iyi örnek yukardaki DogruNormalizasyonKisiler tablosu ile Mailler tablosu arasında ilişkidir. (1->n)
-	Çoka->Çok ilişki
-		Şarkılar ve sanatçılar verilerini tutmak istediğimizi düşünürsek bir şarkıyı birden fazla sanatçı seslendirebilir ve bir
-	sanatçı da birden fazla şarkıyı seslendirebilir. Anlaşılacağı üzere bu da n->n yani çoka çok bir ilişkidir. Bu tür ilişkilerde
-	yapılması en uygun adım ise Şarkılar ve Sanatçılar tablosuna ek olarak Seslendirmeler isminde bir tablo oluşturarak ve bu
-	tablo üzerinde de Şarkılar ve Sanatçılar tablosundaki primary key olan columnlarına ilişki(foreign key) kurmak olacaktır.
-*/
-
-/*
-PRIMARY KEY
-	Birincil Anahtar anlamına gelen bu özellik ile columnu özelleştirip tekrar etmesini önleyebiliriz ve bu column üzerinden
-tablodaki diğer verilere erişebiliriz. Aşağıda bu Primary Key dikkat etmemiz gereken maddeleri göreceğiz.
-	#Her tabloda mutlaka bir adet Primary Key olmalı ve bir tabloda sadece bir adet Primary Key olabilmektedir.
-	#Primary Key olarak belirtilen columnlar boş geçilemez.
-	#Veritabanının altında bulunan Tables klasörü altındaki ilgili tabloya sağ tıklayarak design seçeneğini seçtiğimiz zaman
-	karşımıza tablo düzenleme ekranı gelecektir ve yan tarafta tablo ile ilgili properties sekmesi görünecektir. Bu özellikler
-	sekmesi içerisinde Identity Column olarak isimlendirilmiş bir özellik vardır. Bu özellik bu tablonun tüm keylerini tutar.
-	Peki tablolardaki Columnlara nasıl Primary Key vereceğiz? Bunun için bazı yollar vardır. Bunlar;
-	#Primary Key olmasını istediğimiz columna sağ tıklanınca 'set primary key' seçeneğine tıklanır.
-	#Primary Key column barındırmasını istediğimiz tabloya sağ tıklayarak indexes/keys seçeneğine tıklayarak buradan kural
-	ekleyerek ayarlama yapılabilir.
+Ä°LÄ°ÅKÄ°SEL VERÄ° TABANI
+	SÃ¶ylediÄŸimiz gibi veritabanÄ±nÄ±n daha performanslÄ± olmasÄ± ve verilerin tekrarÄ±nÄ±n Ã¶nlenmesi iÃ§in iliÅŸkilere ihtiyaÃ§ duyarÄ±z.
+Ä°liÅŸkiler Bire->Bir, Bire->Ã‡ok ve Ã‡oka->Ã‡ok olmak Ã¼zere Ã¼Ã§e ayrÄ±lÄ±r.
+	Bire->Bir (1-1) Ä°liÅŸki
+		Ã–rneÄŸin, bir kiÅŸinin T.C. Kimlik NumarasÄ± ile detaylÄ± kimlik bilgileri arasÄ±nda bire-bir iliÅŸki vardÄ±r. Her kiÅŸinin sadece bir kimlik detayÄ± olur.
+	Bire->Ã‡ok (1-N) Ä°liÅŸki
+		Bunu aÃ§Ä±klamaya en iyi Ã¶rnek yukardaki `DogruNormalizasyonKisiler` tablosu ile `Mailler` tablosu arasÄ±ndaki iliÅŸkidir. Bir kiÅŸi birden fazla maile sahip olabilir, ancak bir mail adresi sadece bir kiÅŸiye aittir.
+	Ã‡oka->Ã‡ok (N-N) Ä°liÅŸki
+		ÅarkÄ±lar ve sanatÃ§Ä±lar verilerini tutmak istediÄŸimizi dÃ¼ÅŸÃ¼nÃ¼rsek; bir ÅŸarkÄ±yÄ± birden fazla sanatÃ§Ä± seslendirebilir ve bir
+	sanatÃ§Ä± da birden fazla ÅŸarkÄ±yÄ± seslendirebilir. AnlaÅŸÄ±lacaÄŸÄ± Ã¼zere bu da n->n yani Ã§oka Ã§ok bir iliÅŸkidir. Bu tÃ¼r iliÅŸkilerde
+	yapÄ±lmasÄ± en uygun adÄ±m ise ÅarkÄ±lar ve SanatÃ§Ä±lar tablosuna ek olarak `SanatciSarki` gibi bir ara tablo (junction table) oluÅŸturarak, bu
+	tablo Ã¼zerinde ÅarkÄ±lar ve SanatÃ§Ä±lar tablolarÄ±nÄ±n Primary Key'lerine Foreign Key iliÅŸkisi kurmaktÄ±r.
 */
 
 /*
-COMPOSITE KEY
-	Bir tabloda birden fazla Primary Key kullanmamız gerekebilmektedir. Yani birden fazla Primary Key kullanımı Composite Key
-olarak isimlendirilmektedir.
-	Bunun için en iyi örnek Öğrenci ve Sınav ilişkisi verilebilmektedir. Bir öğrenci birden fazla sınava girebilmektedir fakat
-bir öğrenci aynı sınava bir daha girememektedir. Aynı zamanda öğrencinin sınava girdiği yer bilgisinin de tutulduğunu ele alırsak
-bu işlemleri gören Sınav İşlemleri tablosu oluştururuz. Burada öğrencinin numarası 15 olsun. Bu öğrencinin girdiği sınavlar 1 ve 2
-numaralı sınavlar olsun. Bu durumda öğrenci için tekrar 15 numara ve sınav numarası 1 kaydı girilmesinin engellenmesi gerekir.
-Bu yüzden Composite Key kullanılır ise 15 öğrenci numarası ve 1 ve 2 sınav numaraları artık veri olarak girilemez.
+PRIMARY KEY (Birincil Anahtar)
+	Bir tablodaki her bir satÄ±rÄ± benzersiz (unique) olarak tanÄ±mlayan bir veya daha fazla sÃ¼tundan oluÅŸan bir kÄ±sÄ±tlayÄ±cÄ±dÄ±r (constraint).
+Tekrar eden deÄŸerlere izin vermez ve `NULL` deÄŸer alamaz. Tablodaki diÄŸer verilere hÄ±zlÄ± eriÅŸim iÃ§in birincil anahtar kullanÄ±lÄ±r.
+	#Her tabloda mutlaka bir adet Primary Key olmalÄ±dÄ±r.
+	#Primary Key olarak belirtilen sÃ¼tunlar `NULL` (boÅŸ) deÄŸer alamaz.
+	#SQL Server Management Studio'da (SSMS) bir sÃ¼tunu Primary Key yapmak iÃ§in; tablo tasarÄ±m (design) ekranÄ±nda ilgili sÃ¼tuna saÄŸ tÄ±klayÄ±p 'Set Primary Key' seÃ§eneÄŸi kullanÄ±lÄ±r.
+	#Otomatik artan bir Primary Key oluÅŸturmak iÃ§in, sÃ¼tunun `Identity Specification` Ã¶zelliÄŸi `(Is Identity) = Yes` olarak ayarlanÄ±r. Bu sayede her yeni kayÄ±tta anahtar deÄŸeri otomatik olarak artar.
 */
 
 /*
-FOREIGN KEY
-	İsminden de anlaşılacağı üzere başka bir tablonun Primary Key columnunu tutarak veritabanı ilişkisi sağlayan columna
-Foreign Key isimlendirilir.
+COMPOSITE KEY (BileÅŸik Anahtar)
+	Bir tablodaki bir satÄ±rÄ± benzersiz olarak tanÄ±mlamak iÃ§in birden fazla sÃ¼tunun birlikte kullanÄ±lmasÄ±yla oluÅŸturulan Primary Key'e Composite Key denir.
+	Ã–rneÄŸin, bir Ã¶ÄŸrencinin bir dersten alacaÄŸÄ± vize ve final notlarÄ±nÄ± tutan bir `Notlar` tablosu dÃ¼ÅŸÃ¼nelim. Bu tabloda bir Ã¶ÄŸrenci bir dersten sadece bir vize notu alabilir. Bu durumu garantilemek iÃ§in `OgrenciID` ve `DersID` sÃ¼tunlarÄ± birlikte Primary Key (Composite Key) olarak tanÄ±mlanabilir. Bu sayede (15, 101) gibi bir Ã¶ÄŸrenci-ders ikilisi tabloya sadece bir kez eklenebilir.
 */
 
 /*
-UNIQUE CONSTRAINT
-	Adından da anlaşılacağı üzere columnlara tekrar etmeyen veriler girilmesini sağlar. Unique yapmak istenilen column için
-tabloya sağ tıklayarak Indexes/Keys seçeneğinden istenilen column seçilerek is unique seçeneği true yapılır.
+FOREIGN KEY (YabancÄ± Anahtar)
+	Bir tablodaki sÃ¼tunun, baÅŸka bir tablonun Primary Key'i ile iliÅŸkilendirilmesini saÄŸlayan bir anahtardÄ±r. Bu sayede iki tablo arasÄ±nda referans bÃ¼tÃ¼nlÃ¼ÄŸÃ¼ (referential integrity) saÄŸlanÄ±r. Ã–rneÄŸin, `Siparisler` tablosundaki `MusteriID` sÃ¼tunu, `Musteriler` tablosunun Primary Key'ine bir Foreign Key olarak baÄŸlanabilir. Bu, var olmayan bir mÃ¼ÅŸteriye sipariÅŸ girilmesini engeller.
 */
 
 /*
-CHECK CONSTARINT
-	Kısıtlayıcılar anlamına gelen bu özellik ile veri girişinde bazı kısıtlamalar sağlayabiliriz. Örneğin bir insanın doğum günü
-şu anda 1500 olamamaktadır. Bunun için Birthdate > 1500-01-01 gibi bir kısıtlayıcı yazabiliriz. Bu kısıtlayıcı kodu yazmak için
-ise tabloya sağ tıklayarak Check Constraint seçeneğinden kısıtlayıcı eklenmek istenilen column eklenir ve kısıtlayıcı kod yazılır.
+UNIQUE CONSTRAINT (Benzersiz KÄ±sÄ±tlayÄ±cÄ±)
+	Primary Key olmayan bir sÃ¼tuna veya sÃ¼tun grubuna girilecek verilerin tekrar etmemesini, yani benzersiz olmasÄ±nÄ± saÄŸlar. Primary Key'den farkÄ±, bir tabloda birden fazla `UNIQUE` kÄ±sÄ±tlayÄ±cÄ±sÄ± olabilir ve `UNIQUE` kÄ±sÄ±tlayÄ±cÄ±lÄ± bir sÃ¼tun (sadece bir tane olmak kaydÄ±yla) `NULL` deÄŸer alabilir. Ã–rneÄŸin, `Kullanicilar` tablosunda `Email` sÃ¼tunu `UNIQUE` olarak tanÄ±mlanabilir.
 */
 
 /*
-DEFAULT CONSTRAINT
-	Adından da anlaşılacağı üzere bir columna veri girişi yapılmadan varsayılan olarak bir değer ataması yapmak için kullanılır.
-Bir columna default constarint vermek için o columnun properties sekmesindeki "Default Value Or Binding" özelliğine değer verilir.
+CHECK CONSTRAINT (Kontrol KÄ±sÄ±tlayÄ±cÄ±sÄ±)
+	Bir sÃ¼tuna girilecek verinin belirli bir koÅŸulu saÄŸlamasÄ±nÄ± zorunlu kÄ±lan bir kÄ±sÄ±tlayÄ±cÄ±dÄ±r. Ã–rneÄŸin, bir `Urunler` tablosundaki `BirimFiyat` sÃ¼tununun 0'dan bÃ¼yÃ¼k olmasÄ± gerektiÄŸini `(BirimFiyat > 0)` gibi bir `CHECK` kÄ±sÄ±tlayÄ±cÄ±sÄ± ile garanti edebiliriz. Veya bir `Personel` tablosundaki `IseGirisTarihi`'nin `DogumTarihi`'nden sonra olmasÄ± gerektiÄŸini kontrol edebiliriz.
+*/
+
+/*
+DEFAULT CONSTRAINT (VarsayÄ±lan DeÄŸer KÄ±sÄ±tlayÄ±cÄ±sÄ±)
+	Bir sÃ¼tuna veri giriÅŸi yapÄ±lmadÄ±ÄŸÄ± zaman, o sÃ¼tuna varsayÄ±lan (default) bir deÄŸer atanmasÄ±nÄ± saÄŸlar. Ã–rneÄŸin, `Siparisler` tablosunda `SiparisTarihi` sÃ¼tununa bir deÄŸer girilmezse, varsayÄ±lan olarak o anki tarihin (`GETDATE()` veya `SYSDATETIME()`) atanmasÄ±nÄ± saÄŸlayabiliriz.
 */
 
 /*
 SORGU YAZMAK
-	Sorgu yazmak için CTRL+N kombinine basarak veya Microsoft SQL Server Management Studio da bulunan araç çubuğunun altındaki
-New Query seçeneğine basarak .sql uzantılı dosyayı açmamız gerekmektedir. Sorguyu yazarken CTRL+U kombini veya Execute seçeneğinin
-solunda bulunan ComboBox üzerinden sorguları yazmak istediğimiz veritabanını belirtmek zorundayız. Fakat bunu belirtmek için
-sorgu içerisinde use komutu da vardır.
+	SQL Server Management Studio (SSMS) veya Azure Data Studio gibi bir araÃ§ta yeni bir sorgu penceresi aÃ§mak iÃ§in genellikle `CTRL+N` kÄ±sayolu veya menÃ¼deki 'New Query' butonu kullanÄ±lÄ±r.
+	Sorguyu Ã§alÄ±ÅŸtÄ±rmadan Ã¶nce, hangi veritabanÄ± Ã¼zerinde Ã§alÄ±ÅŸacaÄŸÄ±nÄ±zÄ± belirtmeniz gerekir. Bunu yapmanÄ±n birkaÃ§ yolu vardÄ±r:
+	1. EditÃ¶rdeki veritabanÄ± seÃ§im kutusundan (Dropdown) ilgili veritabanÄ±nÄ± seÃ§mek.
+	2. Sorgu dosyasÄ±nÄ±n en baÅŸÄ±na `USE [VeritabaniAdi];` komutunu eklemek.
 	#USE
-		Bu komut ardından gelen veritabanı ismi ile sorguyu işleyeceğimiz veritabanını belirtmiş oluyoruz. Bu sayede belirtilen
-	veritabanının elemanlarına/tablolarına direkt olarak ulaşmış oluyoruz.
+		Bu komut, takip eden sorgularÄ±n belirtilen veritabanÄ± baÄŸlamÄ±nda (context) Ã§alÄ±ÅŸtÄ±rÄ±lmasÄ±nÄ± saÄŸlar. Bu sayede o veritabanÄ±ndaki tablolara doÄŸrudan isimleriyle eriÅŸilebilir.
 
-	Fakat yine USE komutu olmadan veya veritabanı seçimi yapılmadan da bir veritabanı üzerinde işlem gerçekleştirebiliyoruz.
-Bunun için bilmemiz gereken SCHEMA bilgisidir. SCHEMA veritabanındaki nesneleri gruplandırılması için kullanılır. C# içerisinde
-namespace'e benzetilebilir. Varsayılan SCHEMA 'dbo' dur. Buna göre örnek olan NORTHWIND veritabanındaki Catagories tablosu
-üzerinde bir sorgu yazmak istiyorsak bunu, "Northwind.dbo.Catagories" yani DatabaseName.Schema.ObjectName modelinde yazabiliriz.
+	Bir veritabanÄ± seÃ§imi yapmadan da baÅŸka bir veritabanÄ±ndaki nesneye eriÅŸmek mÃ¼mkÃ¼ndÃ¼r. Bunun iÃ§in `[VeritabaniAdi].[SchemaAdi].[NesneAdi]` ÅŸeklinde tam nitelikli (fully qualified) bir isimlendirme kullanÄ±lÄ±r.
+	SCHEMA: VeritabanÄ± iÃ§erisindeki nesneleri (tablolar, view'lar, prosedÃ¼rler vb.) mantÄ±ksal olarak gruplandÄ±rmak iÃ§in kullanÄ±lan bir yapÄ±dÄ±r. C# dilindeki `namespace` veya klasÃ¶rler gibi dÃ¼ÅŸÃ¼nÃ¼lebilir. SQL Server'da varsayÄ±lan schema `dbo`'dur (database owner). Ã–rneÄŸin: `Northwind.dbo.Categories`.
 	#GO
-		Bu komut ise sorgu içerisinde daha önceden yazılan sorguların işlerinin bittiğini ve birdaha kullanılmayacağını belirtir.
-	Henüz görmedik ama alttaki sorgu ile GO komutunun kullanımı örneklendirilmiştir.
+		Bu komut, bir T-SQL kod bloÄŸunun (batch) sonunu belirtir ve SQL Server'a o bloÄŸu Ã§alÄ±ÅŸtÄ±rmasÄ± iÃ§in bir sinyal gÃ¶nderir. `GO` bir T-SQL komutu deÄŸildir, SSMS gibi araÃ§larÄ±n anladÄ±ÄŸÄ± bir ayraÃ§tÄ±r. Ã–zellikle deÄŸiÅŸkenlerin kapsamÄ±nÄ± (scope) yÃ¶netmek veya birden fazla DDL iÅŸlemini ayÄ±rmak iÃ§in kullanÄ±lÄ±r.
 */
-declare @number INT; /*Sorgu içerisinde değişken oluşturma*/
-SELECT @number = 3; /*Sorgu içerisinde oluşturulan bir değişkene değer atama*/
-print(@number); /*Ekrana değer basma*/
+declare @number INT; /*Sorgu iÃ§erisinde deÄŸiÅŸken oluÅŸturma*/
+SELECT @number = 3; /*Sorgu iÃ§erisinde oluÅŸturulan bir deÄŸiÅŸkene deÄŸer atama*/
+print(@number); /*Ekrana deÄŸer basma*/
 go
-print(@number); 
-/*Görüldüğü üzere artık number değişkeni kullanılamıyor çünkü, go komutu ile eski sorguların işinin bittiğini belirttik. Fakat
-go ve sonrasında gelen print komutları seçilmeden sorgu çalıştırılırsa sorgu sorunsuz biçimde çalışır.*/
-
+-- GO komutundan sonra @number deÄŸiÅŸkeni kapsam dÄ±ÅŸÄ± kalÄ±r ve artÄ±k eriÅŸilemez.
+-- Bu satÄ±r hata verecektir: "Must declare the scalar variable "@number"."
+-- print(@number); 
 /*
 #SELECT SORGUSU
-	Veritabanından tablo/tablolar üzerinden veri okumak için kullanılır. select sorgusundan sonra gelen column isimlerini from
-ifadesinden sonra gelen tablo içerisinden arar ve değerleri ekrana basar. Ayrıca tüm columnların basılması isteniyorsa bunun
-için * ifadesi eklenebilir. Fakat dikkat edilmelidir ki çok fazla veri varsa performans etkilenir. Ayrıca MSSQL Managment Studio
-içerisinde * ifadesinin üzerinde bir süre durduktan sonra var olan column isimleri gözükecektir. Aynı samanda select sorgusu
-ile elde edilen sonuçları result sekmesinden tüm değerleri seçerek veya istenilen değerleri seçerek CTLR+SHIFT+C kombinine
-basarak veya sağ tıklayıp Copy with Headers seçeneğine basarak excel veye world için tablo biçiminde kopyalama yapılabilir.
+	VeritabanÄ±ndaki bir veya daha fazla tablodan veri okumak (sorgulamak) iÃ§in kullanÄ±lÄ±r. `SELECT` ifadesinden sonra getirilmek istenen sÃ¼tun isimleri, `FROM` ifadesinden sonra ise bu sÃ¼tunlarÄ±n bulunduÄŸu tablo adÄ± belirtilir.
+	TÃ¼m sÃ¼tunlarÄ± getirmek iÃ§in `*` karakteri kullanÄ±lÄ±r. Ancak bu, Ã¶zellikle geniÅŸ tablolarda performansÄ± olumsuz etkileyebilir. En iyi pratik, sadece ihtiyaÃ§ duyulan sÃ¼tunlarÄ± belirtmektir.
+	SSMS'te, sorgu sonuÃ§larÄ±nÄ± (result grid) seÃ§ip `CTRL+C` ile kopyaladÄ±ÄŸÄ±nÄ±zda veriler panoya kopyalanÄ±r. `SaÄŸ tÄ±k -> Copy with Headers` seÃ§eneÄŸi ile sÃ¼tun baÅŸlÄ±klarÄ±yla birlikte kopyalayarak Excel gibi uygulamalara kolayca yapÄ±ÅŸtÄ±rabilirsiniz.
 */
 use Northwind;
 go
-select * from Categories;
+select CategoryID, CategoryName, Description from Categories;
 /*
 #WHERE
-	Select sorgusu için belirli şartlar dahilinde sonuçların getirlmesi isteniyorsa kullanılır. Select sorgusu normal yapıldıktan
-sonra where ifadesi getirilir ve şart/şartlar yazılır.
+	`SELECT` sorgusuna bir koÅŸul ekleyerek sadece belirli kriterlere uyan satÄ±rlarÄ±n getirilmesini saÄŸlar. `FROM` ifadesinden sonra kullanÄ±lÄ±r.
 */
-/*Northwind veritabanında Products tablosu üzerinde UnitPrice column değerinin 18'den büyük olanları getireceğiz.*/
+/*Northwind veritabanÄ±nda Products tablosu Ã¼zerinde UnitPrice sÃ¼tun deÄŸerinin 18'den bÃ¼yÃ¼k olanlarÄ± getireceÄŸiz.*/
 use Northwind;
 go
-select * from Products where UnitPrice > 18; /*UnitPrice 18'den büyük ise sonuçlar getirilir.*/
+select ProductName, UnitPrice from Products where UnitPrice > 18; /*UnitPrice 18'den bÃ¼yÃ¼k ise sonuÃ§lar getirilir.*/
 /*
 #BETWEEN AND
-	Where ifadesi ile birlikte şart/şartlar için iki değer arasında sorgulama gerçekleştirmek için kullanılır. Where ifadesinden
-sonra gelen ve kontrol edilmek istenen column isminden sonra BETWEEN ifadesi gelir ve kapalı aralığın başlangıç değeri verilir.
-Daha sonra ise AND ifadesi gelir ve sonrasındaki kapalı aralığın diğer değeri verilir.
+	`WHERE` koÅŸulunda bir sÃ¼tunun deÄŸerinin belirli bir aralÄ±kta (baÅŸlangÄ±Ã§ ve bitiÅŸ deÄŸerleri dahil) olup olmadÄ±ÄŸÄ±nÄ± kontrol etmek iÃ§in kullanÄ±lÄ±r.
 */
-/*Northwind veritabanında Products tablosu üzerinde UnitPrice 18 dahil ve 21 dahil aralığındaki değerleri getireceğiz.*/
+/*Northwind veritabanÄ±nda Products tablosu Ã¼zerinde UnitPrice 18 dahil ve 21 dahil aralÄ±ÄŸÄ±ndaki deÄŸerleri getireceÄŸiz.*/
 use Northwind;
 go
-select * from Products where UnitPrice between 18 and 21; /*Küçük değer between ifadesinden sonra yazılır.*/
+select ProductName, UnitPrice from Products where UnitPrice between 18 and 21; /*KÃ¼Ã§Ã¼k deÄŸer between'den sonra yazÄ±lÄ±r.*/
 /*
-#KOŞULDA FONKSİYON KULLANMA
-	Where ifadesinden sonra koşullar için fonksiyonlar kullanabilir ve bu fonksiyonlardan gelen değerlere göre şart/şartlar
-ekleyebiliriz.
+#KOÅULDA FONKSÄ°YON KULLANMA
+	`WHERE` ifadesinde, sÃ¼tun deÄŸerlerini bir fonksiyondan geÃ§irerek elde edilen sonuca gÃ¶re filtreleme yapÄ±labilir.
 */
 use Northwind
 go
-select E.FirstName+' '+E.LastName as 'Adı Soyadı', E.BirthDate as 'Doğum Tarihi', YEAR(GETDATE()) - YEAR(E.BirthDate) as Yaşı, 
-E.Country as 'Doğum Yeri' from Employees E where YEAR(GETDATE()) - YEAR(e.BirthDate) > 65;
-/*Yukarıdaki sorguyu sırayla açıklayalım. öncelikle from ifadesinden sonra gelen tablo isminden sonra E harfi gelmiştir.
-Bunun anlamı bu sorgu içerisinde E görülen yerde Employees tablo ismi vardır. Yani Employees tablosu için E kısaltmasını 
-kullandık. Daha sonra E.FirstName+' '+E.LastName as 'Adı Soyadı' ile yazdığımız kısımda, bu tablonun içerisindeki FirsName
-column'u ile LastName column'unu + operatörü ile birleştirdik. Fakat ekstra olarak ' ' ifadesini yani isim ve soyisim arasında
-boşluk olmasını da sağladık. Daha sonra gelen as ifadesi bu column ifadesinin tablo ismini yani üste yazacak ismini belirlemek
-için kullanılır. Tek tırnak arasına yazdık çünkü Adı yazdıktan sonra arada boşluk bırakmak istiyoruz. Bunu AdıSoyadı biçiminde de
-yazabilirdik. Daha sonra , ile başka column getireceğimizi belirtmiş olduk. Daha sonrasında ise YEAR fonksiyonunu kullandık
-bu fonksiyon ile verilen tarih içerisinden yılı elde edebiliyoruz. İçerisinde de GETDATE fonksiyonunu kullandık. Bu fonksiyon
-ile de şuan ki tarihi elde edebiliyoruz. Bunları da birbirinden çıkartarak kişinin yaşını elde etmiş olduk ve as ile bu sonucun
-başlığını Yaşı olarak belirledik. where ifadesinde de bu yaşı hesaplayıp yaşı 65 den büyükleri elde etmiş olduk.*/
+select 
+    E.FirstName + ' ' + E.LastName as 'AdÄ± SoyadÄ±', 
+    E.BirthDate as 'DoÄŸum Tarihi', 
+    YEAR(GETDATE()) - YEAR(E.BirthDate) as YaÅŸÄ±, 
+    E.Country as 'Ãœlke' 
+from 
+    Employees E 
+where 
+    YEAR(GETDATE()) - YEAR(E.BirthDate) > 65;
+/*
+YukarÄ±daki sorguyu aÃ§Ä±klayalÄ±m:
+- `from Employees E`: `Employees` tablosuna bu sorgu iÃ§inde `E` takma adÄ±nÄ± (alias) veriyoruz. Bu, sorguyu daha okunaklÄ± hale getirir.
+- `E.FirstName + ' ' + E.LastName as 'AdÄ± SoyadÄ±'`: `FirstName` ve `LastName` sÃ¼tunlarÄ±nÄ± bir boÅŸlukla birleÅŸtirip, oluÅŸan yeni sÃ¼tuna `as` anahtar kelimesiyle 'AdÄ± SoyadÄ±' ismini veriyoruz.
+- `YEAR(GETDATE()) - YEAR(E.BirthDate) as YaÅŸÄ±`: `GETDATE()` fonksiyonu o anki tarihi, `YEAR()` fonksiyonu ise bir tarihin yÄ±l kÄ±smÄ±nÄ± verir. Bu iki deÄŸeri Ã§Ä±kararak kiÅŸinin yaÅŸÄ±nÄ± hesaplÄ±yor ve bu sÃ¼tuna `YaÅŸÄ±` adÄ±nÄ± veriyoruz.
+- `where YEAR(GETDATE()) - YEAR(E.BirthDate) > 65`: `where` koÅŸulunda yine aynÄ± yaÅŸ hesaplamasÄ±nÄ± yaparak, yaÅŸÄ± 65'ten bÃ¼yÃ¼k olan Ã§alÄ±ÅŸanlarÄ± filtreliyoruz.
+*/
 /*
 #DISTINCT
-	Select ifadesi ile getirlien column yani verilerin tekrarının önlenmesi için kullanılır. Aşağıdaki örnekte de görüldüğü üzere,
-hangi şehirlerden çalışanların olduğunu tekrarı önleyerek elde ettik.
+	`SELECT` ifadesinden sonra kullanÄ±ldÄ±ÄŸÄ±nda, sorgu sonucunda tekrar eden satÄ±rlarÄ±n elenmesini ve sadece benzersiz (farklÄ±) satÄ±rlarÄ±n getirilmesini saÄŸlar.
 */
 use Northwind;
 go
-select distinct City as Şehirler from Employees;
+select distinct City as Åehirler from Employees;
 /*
 #AND ve OR ifadeleri
-	Where ifadesinden sonra gelen şartı/şartları ve/veya kapısındaki olduğu gibi şleme sokmak için kullanılır. Bu sayede birden
-fazla şart yazılabilir ve istenilene göre and veya or seçilebilir. Aşağıdaki örnekte 1960 doğumlu ve UK doğumlu insanların
-bilgileri listelenecektir. Onun altındaki örnekte ise ürün fiyatı 18 veya 19 olan ürünler listelenecektir. Son örnekte ise birden
-fazla between-and ifadesinin de and veya or ile kullanılabileceği gösterilecektir.
+	`WHERE` koÅŸulunda birden fazla koÅŸulu birleÅŸtirmek iÃ§in kullanÄ±lÄ±r.
+	- `AND`: Her iki koÅŸulun da doÄŸru (true) olmasÄ± durumunda sonuÃ§ dÃ¶ner.
+	- `OR`: KoÅŸullardan en az birinin doÄŸru (true) olmasÄ± durumunda sonuÃ§ dÃ¶ner.
 */
-/*1960 yılında İngiltere'de doğan çalışanları listeler. Employees tablosu içinde BirthDate ve Country columnları kullanıldı.*/
+/*1960 yÄ±lÄ±nda Ä°ngiltere'de (UK) doÄŸan Ã§alÄ±ÅŸanlarÄ± listeler.*/
 use Northwind;
 go
 select * from Employees where YEAR(BirthDate) = 1960 and Country = 'UK';
-/*Ürün birim fiyatı 18 veya 19 olan ürünleri listeler. Products tablosu içinde UnitPrice columnu kullanıldı.*/
+
+/*ÃœrÃ¼n birim fiyatÄ± 18 veya 19 olan Ã¼rÃ¼nleri listeler.*/
 use Northwind
 go
 select * from Products 
-where UnitPrice = 18.00 or UnitPrice = 19;/*virgül özel ifade olduğu için ondalıklı sayılarda nokta kullanılır.*/
-/*Between-and ifadesi ile yaşları 1930 ile 1960 arasında olup işe girme tarihi 1990 ile 1992 arasında olan çalışanlar.*/
+where UnitPrice = 18.00 or UnitPrice = 19.00; /*OndalÄ±klÄ± sayÄ±larda nokta kullanÄ±lÄ±r.*/
+
+/*DoÄŸum yÄ±lÄ± 1950 ile 1960 arasÄ±nda olan VE iÅŸe giriÅŸ yÄ±lÄ± 1992 ile 1994 arasÄ±nda olan Ã§alÄ±ÅŸanlar.*/
 use Northwind
 go
-select * from Employees where YEAR(BirthDate) between 1930 and 1960 and YEAR(HireDate) between 1990 and 1992;
+select * from Employees where YEAR(BirthDate) between 1950 and 1960 and YEAR(HireDate) between 1992 and 1994;
 /*
 #IN
-	Peki ya çok fazla or işlemi yazacak olursak? Teker teker yazmamıza gerek yok. Bir column içerisinde birden fazla değeri aratıp
-herhangi biri bulunduğu zaman göstermek için kullanılır. in ifadesinden sonra parantezler açılır ve virgül ile değerler ayrılarak
-yazılır. Aşağıdaki örnekte Seattle, Tacoma ve London şehirlerinde doğan çalışanlar listelenmiştir.
+	`WHERE` koÅŸulunda bir sÃ¼tunun deÄŸerinin, verilen listedeki deÄŸerlerden herhangi birine eÅŸit olup olmadÄ±ÄŸÄ±nÄ± kontrol eder. Ã‡ok sayÄ±da `OR` koÅŸulu yazmak yerine kullanÄ±lÄ±r.
 */
 use Northwind
 go
-select * from Employees where City in('Seattle', 'London', 'Tacoma')
+select * from Employees where City in ('Seattle', 'London', 'Tacoma');
 /*
 #LIKE
-	Bu ifade column içerisinde benzerlik aramak için kullanılır. Programlama dillerinde string içerisinde veya int içerisinde bir
-değer veya ifade aramaya benzetilebilir. Fakat bu ifade özel karakterler ile birlikte kullanılırlar. Bu özel karakterler;
-		#(_)-> Bir harf veya rakam karakterini ifade eder.
-		#([A-Z])-> A ve Z dahil aralığındaki harfleri ifade eder.
-		#([0-9])-> 0 ve 9 dahil aralığındaki rakamları ifade eder.
-		#([])-> Herhangi bir harf veya rakam yerine gelebilecek harf veya rakamı ifade eder.
-		#([^])-> Herhangi bir harf veya rakam yerine gelemeyecek harf veya rakamı ifade eder.
-		#(%)-> Birden fazla harf veya rakamı ifade eder.
-		#(+)-> String ifadeleri birleştirir. Sayısal ifadeleri toplar.
-	Yukarda görülen tablodaki sadece % karakterini kullanarak aşağıda kutulanmış ürünleri gösteren bir örnek vardır. Diğer 
-karakterler ile ilgili de örnekler ödev olarak yapılacaktır. Bu karakterler birden fazla biçimde kullanılabilir
-ve birleştirilebilir. Bu yüzden ödev içerisinde bu karakterleri kullanabileceğiniz tüm formatlarda kullanın. Ayrıca benzerlik
-yerine benzemezlik de kullanılabilir. Bunun için NOT ifadesi like ifadesinin önüne gelebilir. Yani aşağıdaki örnekte like ifadesi
-önüne not gelseydi kutulanmamış ürünler gösterilecekti.
+	`WHERE` koÅŸulunda metinsel (string) veriler iÃ§inde desen (pattern) aramasÄ± yapmak iÃ§in kullanÄ±lÄ±r. `LIKE` ile birlikte bazÄ± Ã¶zel karakterler (wildcards) kullanÄ±lÄ±r:
+		# `%`: SÄ±fÄ±r, bir veya daha fazla karakteri temsil eder.
+			- `'A%'`: 'A' ile baÅŸlayanlar.
+			- `'%A'`: 'A' ile bitenler.
+			- `'%A%'`: Ä°Ã§inde 'A' geÃ§enler.
+		# `_` (alt Ã§izgi): Tek bir karakteri temsil eder.
+			- `'_A%'`: Ä°kinci harfi 'A' olanlar.
+		# `[]`: Belirtilen aralÄ±k veya setteki tek bir karakteri temsil eder.
+			- `'[A-C]%'`: A, B veya C ile baÅŸlayanlar.
+			- `'[ABC]%'`: A, B veya C ile baÅŸlayanlar.
+		# `[^]`: Belirtilen aralÄ±k veya sette OLMAYAN tek bir karakteri temsil eder.
+			- `'[^A-C]%'`: A, B veya C ile baÅŸlamayanlar.
+	`NOT LIKE` ifadesi ise belirtilen desene uymayan kayÄ±tlarÄ± getirir.
 */
+/*Paketleme bilgisinde 'box' kelimesi geÃ§en Ã¼rÃ¼nleri listeler.*/
 use Northwind
 go
-select ProductName as Ürün, QuantityPerUnit as 'Paket Türü' from Products where QuantityPerUnit like '%box%';
+select ProductName as ÃœrÃ¼n, QuantityPerUnit as 'Paket TÃ¼rÃ¼' from Products where QuantityPerUnit like '%box%';
 /*
-#KARŞILAŞTIRMA OPERATÖRLERİ
-	Verileri where ile birlikte kontrol ederken karşılaştırma operatörleri kullanılır. Bu operatörler aşağıdaki gibidir.
-		#(=)-> Eşitlik anlamına gelir.
-		#(!= veya <>)-> Eşit değil anlamına gelir.
-		#(>, >=, < veya <=)-> Büyük/Küçük veya Büyük Eşit/Küçük Eşit anlamına gelir.
-		#(is null)-> Değer atanmamış anlamıa gelir. (= null) ifadesi ile aynı görevi görür.
-	Yukarıdaki tablodaki is null ifadesi aynı zamanda ISNULL fonksiyonu olarak column belirtilen alanlarda eğer null gelirse
-geriye dönderilecek değeri belirtmek için kullanılır. Anlaşılacağı üzere iki adet parametresi vardır. İlk parametre kontrol
-edilecek column, ikinci parametre ise bu columnun null olması durumunda dönecek değerdir. Aşağıdaki örnekte ise herhangi bir
-bögleye ait olmayan şirketler listelenmiştir.
+#KARÅILAÅTIRMA OPERATÃ–RLERÄ°
+	`WHERE` koÅŸulunda kullanÄ±lan temel operatÃ¶rlerdir:
+		# `=`: EÅŸittir
+		# `!=` veya `<>`: EÅŸit deÄŸildir
+		# `>`: BÃ¼yÃ¼ktÃ¼r
+		# `<`: KÃ¼Ã§Ã¼ktÃ¼r
+		# `>=`: BÃ¼yÃ¼k eÅŸittir
+		# `<=`: KÃ¼Ã§Ã¼k eÅŸittir
+		# `IS NULL`: DeÄŸerin `NULL` (boÅŸ) olup olmadÄ±ÄŸÄ±nÄ± kontrol eder. (`= NULL` KULLANILMAZ!)
+		# `IS NOT NULL`: DeÄŸerin `NULL` olmadÄ±ÄŸÄ±nÄ± kontrol eder.
+	`ISNULL()` bir fonksiyon olup, bir sÃ¼tun `NULL` ise onun yerine baÅŸka bir deÄŸer dÃ¶ndÃ¼rmek iÃ§in kullanÄ±lÄ±r. `ISNULL(Region, 'BÃ¶lge Yok')` ifadesi, `Region` sÃ¼tunu `NULL` ise 'BÃ¶lge Yok!' metnini, deÄŸilse `Region` deÄŸerini dÃ¶ndÃ¼rÃ¼r.
 */
+/*Region (BÃ¶lge) bilgisi girilmemiÅŸ (NULL) olan mÃ¼ÅŸterileri listeler.*/
 use Northwind
 go
-select CompanyName as Şirket, ISNULL(Region, 'Bölge Yok!') as Bölge from Customers where Region is null;
+select CompanyName as Åirket, ISNULL(Region, 'BÃ¶lge Yok!') as BÃ¶lge from Customers where Region is null;
 /*
-#Order By
-	Select sorgusu ile elde edilen veri gurubunu sıralamak için kullanılır. Örneğin select sorgusu ile çalışanları aldığımızı ve
-bu çalışanları büyükten küçüğe sıralamak istediğimizi varsayalım.
-	#asc: Azalandan - Artana sıralama için eklenir.
-	#desc: Artandan - Azalana sıralama için eklenir.
+#ORDER BY
+	`SELECT` sorgusu ile elde edilen sonuÃ§ kÃ¼mesini bir veya daha fazla sÃ¼tuna gÃ¶re sÄ±ralamak iÃ§in kullanÄ±lÄ±r. VarsayÄ±lan sÄ±ralama tÃ¼rÃ¼ artandÄ±r (`ASC`).
+	# `ASC` (Ascending): Artan sÄ±ralama (A'dan Z'ye, 0'dan 9'a).
+	# `DESC` (Descending): Azalan sÄ±ralama (Z'den A'ya, 9'dan 0'a).
 */
+/*Ã‡alÄ±ÅŸanlarÄ± doÄŸum tarihlerine gÃ¶re (en genÃ§ten en yaÅŸlÄ±ya) sÄ±ralar.*/
 use Northwind
 go
-select E.FirstName + ' ' + E.LastName as 'Adı Soyadı', CONVERT(nvarchar(10), E.BirthDate, 104) as 'Doğum Tarihi' 
-from Employees E order by YEAR(E.BirthDate) asc, MONTH(E.BirthDate) asc, DAY(E.BirthDate) asc;
+select 
+    E.FirstName + ' ' + E.LastName as 'AdÄ± SoyadÄ±', 
+    CONVERT(nvarchar(10), E.BirthDate, 104) as 'DoÄŸum Tarihi' -- 104 formatÄ±: dd.mm.yyyy
+from 
+    Employees E 
+order by 
+    E.BirthDate DESC;
 /*
 #TOP
-	Başlangıçtan itibaren adet veya yüzde olarak kaç veri gösterileceğini belirlemek için kullanılır. Select sorgusunun yanına
-gelerek belirtilir. Örneğin aşağıda personeller arasından en büyük 3 kişiyi alalım.
+	Sorgu sonucunda dÃ¶necek satÄ±r sayÄ±sÄ±nÄ± sÄ±nÄ±rlamak iÃ§in `SELECT` ifadesinden hemen sonra kullanÄ±lÄ±r. Genellikle `ORDER BY` ile birlikte kullanÄ±larak "en iyi N" veya "en kÃ¶tÃ¼ N" sonuÃ§larÄ± elde edilir.
 */
+/*En yaÅŸlÄ± 3 Ã§alÄ±ÅŸanÄ± listeler.*/
 use Northwind
 go
-select top 3 E.FirstName + ' ' + E.LastName as 'Adı Soyadı', CONVERT(nvarchar(10), E.BirthDate, 104) as 'Doğum Tarihi' 
-from Employees E order by YEAR(E.BirthDate) asc, MONTH(E.BirthDate) asc, DAY(E.BirthDate) asc;
+select top 3
+    E.FirstName + ' ' + E.LastName as 'AdÄ± SoyadÄ±', 
+    CONVERT(nvarchar(10), E.BirthDate, 104) as 'DoÄŸum Tarihi' 
+from 
+    Employees E 
+order by 
+    E.BirthDate ASC; -- ASC: en eski tarihler (en yaÅŸlÄ±lar) Ã¶nce gelir.
 /*
-#Top fonksiyonu için With Ties Parametresi
-	Top fonksiyonu ile birlikte kullanılır. Listelenen son elemanın değeri ile aynı bir değer var ise onu da listelemeye dahil
-eder. Örneğin En az fiyatlı top 12 ürünü listeleyelim ve with ties parametresini de ekleyelim.
+#TOP ... WITH TIES
+	`TOP` ile birlikte kullanÄ±ldÄ±ÄŸÄ±nda, `ORDER BY` kriterine gÃ¶re son sÄ±radaki satÄ±rla aynÄ± deÄŸere sahip olan diÄŸer satÄ±rlarÄ± da sonuca dahil eder.
 */
+/*En ucuz 12 Ã¼rÃ¼nÃ¼ listeler. EÄŸer 12. Ã¼rÃ¼nle aynÄ± fiyatta baÅŸka Ã¼rÃ¼nler varsa, onlarÄ± da listeye ekler.*/
 use Northwind
 go
-select top 12 with ties P.ProductName as 'Ürün İsmi', P.UnitPrice as 'Birim Fiyatı'
-from Products P order by P.UnitPrice asc;
-/*Görüldüğü üzere 12 ürün nlistelendi ve 12. ürünün birim fiyatı 10 olduğu için diğer birim fiyatı 10 olan ürünler de ek olarak
-listelenmiştir. Fakat dikkat edilmeksi gereken şey şudur ki order by ile sıralanma yöntemi belirlenmelidir.*/
+select top 12 with ties 
+    P.ProductName as 'ÃœrÃ¼n Ä°smi', 
+    P.UnitPrice as 'Birim FiyatÄ±'
+from 
+    Products P 
+order by 
+    P.UnitPrice asc;
 /*
-#DEĞİŞKENLER - VARIABLES
-	Değişkenler bilindiği gibi veri tipine göre ram üzerinde veri tutmak ve değişken olarak bunları kullanmak istediğimiz için
-kullanılırlar.
-	Tanımlama
-		Declare @variable_name variable_type => biçiminde tanımlama yapılır.
-	Değer Atama
-		#set: Tek bir değişkene değer ataması yapmak için kullanılır.
-		#select: Birden fazla değişkene değer ataması yapılabilmektedir.
+#DEÄÄ°ÅKENLER (VARIABLES)
+	T-SQL sorgularÄ± iÃ§inde geÃ§ici olarak veri saklamak iÃ§in kullanÄ±lan nesnelerdir. `@` iÅŸareti ile baÅŸlarlar.
+	TanÄ±mlama:
+		`DECLARE @degisken_adi VERI_TIPI;`
+	DeÄŸer Atama:
+		# `SET @degisken_adi = deger;` (Tek bir deÄŸiÅŸkene deÄŸer atamak iÃ§in standart yÃ¶ntem)
+		# `SELECT @degisken_adi = deger;` (Birden fazla deÄŸiÅŸkene aynÄ± anda veya bir sorgu sonucundan deÄŸer atamak iÃ§in kullanÄ±labilir)
 */
 go
-Declare @sample_variable nvarchar(23);
-Declare @sample_variable_2 nvarchar(25);
-set @sample_variable = 'This is a test variable';
-set @sample_variable_2 = 'This is a second variable';
-select @sample_variable as 'sample_variable', @sample_variable_2 as 'sample_variabl_2';
-select @sample_variable = 'First variable changed', @sample_variable_2 = 'Second variable changed';
-select @sample_variable as 'sample_variable', @sample_variable_2 as 'sample_variabl_2';
+Declare @sample_variable nvarchar(50);
+Declare @sample_variable_2 nvarchar(50);
+set @sample_variable = 'Bu bir test deÄŸiÅŸkenidir';
+select @sample_variable_2 = 'Bu ikinci deÄŸiÅŸkendir';
+select @sample_variable as 'degisken1', @sample_variable_2 as 'degisken2';
+go
 /*
-#Tip Dönüşümü
-	Tip dönüşümü bir değişkenin değerini farklı veri tiplerinde elde etmek için kullanılır. Fakat dikkat edilmesi gereken bir
-metini asla tarihe çeviremiyecek olmanızdır. Tip dönüşümü için Convert, Try_Convert ve Cast olmak üzere 3 adet yöntem vardır.
-	#return Convert(variable_type, variable_name, format): Görüldüğü üzere 3 adet parametre alır ve 3. parametre yalnızca isteğe
-	bağlı olarak tarih dönüşümlerinde kullanılır. İlk parametrede değişkenin dönüştürüleceği veri tipi, ikinci parametrede ise
-	değişkenin kendisi yer almaktadır. Çevrilen değer geriye dönderilir. Tarihler için ise bazı formatlar kullanılmaktadır. Örneğin
-	Almanya bizim ile aynı yani gün/ay/yıl biçiminde tarih tutar ve bunun kodu 104 olmaktadır. (Bkz. Microsoft Documents)
-	#return Try_Convert(variable_type, variable_name, format): Convert metodundan tek farklı, çevirme işlemi başarılı ise çevrilen
-	değer döner. Çevirme işlemi başarısız ise geriye null değeri döner.
-	#return cast(variable_name as converting_variable_type): Çevirme işleminde değişkenin stilini/formatını değiştirmeksizin
-	veri çevrimi yapar ve geriye dönderir.
-	#return hierarchyid::parse('format'): hierarchyid veri tiplerinin çevriminde kullanılır.
-	#return Try_Parse(variable_name as variable_type using region_format): Eğer çevirme işlemi başarılı ise çevrilen değeri
-	başarısız ise geriye null dönderir. Herhangi bir string değeri başka bir değere çevirmek için kullanılır.
+#Tip DÃ¶nÃ¼ÅŸÃ¼mÃ¼ (Data Type Conversion)
+	Bir veri tipindeki deÄŸeri baÅŸka bir veri tipine dÃ¶nÃ¼ÅŸtÃ¼rmek iÃ§in kullanÄ±lÄ±r.
+	# `CAST(ifade AS veri_tipi)`: ANSI SQL standardÄ± olan temel dÃ¶nÃ¼ÅŸÃ¼m fonksiyonudur. Formatlama seÃ§eneÄŸi yoktur.
+	# `CONVERT(veri_tipi, ifade, [stil])`: SQL Server'a Ã¶zgÃ¼, daha esnek bir fonksiyondur. Ã–zellikle tarih ve para birimi formatlamalarÄ± iÃ§in `stil` parametresi alÄ±r.
+	# `TRY_CAST` ve `TRY_CONVERT`: DÃ¶nÃ¼ÅŸÃ¼m iÅŸlemi baÅŸarÄ±sÄ±z olursa hata vermek yerine `NULL` deÄŸeri dÃ¶ndÃ¼ren daha gÃ¼venli versiyonlardÄ±r.
+	# `PARSE(ifade AS veri_tipi [USING kÃ¼ltÃ¼r])`: Metinsel bir ifadeyi tarih veya sayÄ±sal bir tipe dÃ¶nÃ¼ÅŸtÃ¼rÃ¼r. KÃ¼ltÃ¼r (Ã¶rn: 'tr-TR') belirterek bÃ¶lgesel formatlara gÃ¶re dÃ¶nÃ¼ÅŸÃ¼m yapabilir.
+	# `TRY_PARSE`: `PARSE`'Ä±n `NULL` dÃ¶ndÃ¼ren gÃ¼venli versiyonudur.
 */
 /*
-#Transact-SQL
-	Microsoft tarafından (if, else vb.) bazı karmaşık sorgularda kullanılmak üzere geliştirilmiş, ANSI standartları dışında olan
-bir sorgulama dilidir. DML, DDL ve DCL olmak üzere 3 grubda incelenebilir.
-	#DML(Data Manipulation Language) - Veri İşleme Dili
-		Select, delete, update ve insert komutları bu grubda kullanılmaktadır.
-	#DDL(Data Definition Language) - Veri Tanımlama Dili
-		Create Table, Alter Table, Drop Table ve Create Index gibi database oluşturma komutları bu grubdadır.
-	#DCL(Data Control Language) - Veri Kontrol Dili
-		Grant, Deny ve Revoke ile birlikte kullanıcı yetkilerini kontrol etmektedir.
+#Transact-SQL (T-SQL)
+	Microsoft'un, standart SQL'e ek olarak `IF-ELSE`, `WHILE` gibi kontrol yapÄ±larÄ±, deÄŸiÅŸkenler, hata yÃ¶netimi gibi prosedÃ¼rel programlama yetenekleri ekleyerek geniÅŸlettiÄŸi SQL lehÃ§esidir. T-SQL komutlarÄ± Ã¼Ã§ ana gruba ayrÄ±lÄ±r:
+	#DML (Data Manipulation Language) - Veri Ä°ÅŸleme Dili
+		Veriler Ã¼zerinde iÅŸlem yapan komutlardÄ±r: `SELECT`, `INSERT`, `UPDATE`, `DELETE`.
+	#DDL (Data Definition Language) - Veri TanÄ±mlama Dili
+		VeritabanÄ± nesnelerini (tablo, index, view vb.) oluÅŸturan, deÄŸiÅŸtiren veya silen komutlardÄ±r: `CREATE`, `ALTER`, `DROP`.
+	#DCL (Data Control Language) - Veri Kontrol Dili
+		VeritabanÄ± eriÅŸimini ve kullanÄ±cÄ± yetkilerini yÃ¶neten komutlardÄ±r: `GRANT`, `DENY`, `REVOKE`.
 */
 
 /*
-#SQL Server Functions
-	1-)Date Functions - Tarih Fonksiyonları
-		#DATEDIFF(Date Shortcut, start date, finish date) fonksiyonu geriye date shortuct formatında tarih dönderir. Çalışanların
-		kaç yaşında olduklarını bulan sorguyu yazalım.
-		#GETDATE() parametre almadan geriye yıl/ay/gün formatında tarih dönderir.
-		#DATEPART(Shortcut, date) parametre olarak verilen tarihi shortuct kıaltması formatında geriye dönderir.
-		#DATEADD(Date to will add shortcut, NumberOfAdd, Date) Date to will add shortcut parametresinde verilen formata yani yıl
-		ise yıla göre NumberOfAdd kadar yıl veya ne belirtilir ise son parametredeki tarihe ekler.
-		#DATENAME(Shortcut, date) verilen tarihin shortcut ile verilen ay, hafta ile ay ismini veya gün ismini dönderir.
-		#DAY(Date) verilen tarihin gününü sayısal olarak geriye dönderir.
-		#MONTH(Date) verilen tarihin ayını sayısal olarak geriye dönderir.
-		#YEAR(Date) verilen tarihin yılını sayısal olarak dört haneli geriye dönderir.
-		#DATEFROMPARTS(Year, Month, Day) Girilen yıl/ay/gün e göre tarih oluşturup geriye dönderir.
-		#DATETIMEFROMPARTS(Year, Month, Day, Hour, Minute, Second, Salise, Milisecond) parametrelerinden DateTime elde edilir.
-		#SMALLDATETIMEFROMPARTS(Year, Month, Day, Hour, Minute) Parametrelerinden SmallDateTime elde edilir.
-		#TIMEFROMPARTS(Hour, Minute, Second, Kesir, Duyarlılık) Parametrelerinden Time elde edilir.
-		#ISDATE('Date') Paremetre olarak verilen stringin tarih olup olmadığın true veya false ile geriye dönderir.
-		Araştır daha fazlası var.
+#SQL Server FonksiyonlarÄ±
+	1-)Tarih ve Saat FonksiyonlarÄ± (Date and Time Functions)
+		# `SYSDATETIME()`: Sunucunun tarih ve saatini daha yÃ¼ksek hassasiyetle dÃ¶ndÃ¼rÃ¼r. `GETDATE()`'e gÃ¶re daha modern bir alternatiftir.
+		# `DATEDIFF(tarih_parÃ§asÄ±, baÅŸlangÄ±Ã§_tarihi, bitiÅŸ_tarihi)`: Ä°ki tarih arasÄ±ndaki farkÄ± belirtilen tarih parÃ§asÄ± (yÄ±l, ay, gÃ¼n vb.) cinsinden dÃ¶ndÃ¼rÃ¼r.
+		# `DATEADD(tarih_parÃ§asÄ±, sayÄ±, tarih)`: Bir tarihe belirtilen tarih parÃ§asÄ± kadar ekleme veya Ã§Ä±karma yapar.
+		# `DATEPART(tarih_parÃ§asÄ±, tarih)`: Bir tarihin belirtilen parÃ§asÄ±nÄ± (yÄ±l, ay, gÃ¼n vb.) tamsayÄ± olarak dÃ¶ndÃ¼rÃ¼r.
+		# `DATENAME(tarih_parÃ§asÄ±, tarih)`: Bir tarihin belirtilen parÃ§asÄ±nÄ±n adÄ±nÄ± (Ã¶rn: 'Nisan', 'Pazartesi') metinsel olarak dÃ¶ndÃ¼rÃ¼r.
+		# `YEAR(tarih)`, `MONTH(tarih)`, `DAY(tarih)`: Tarihin sÄ±rasÄ±yla yÄ±l, ay ve gÃ¼nÃ¼nÃ¼ tamsayÄ± olarak dÃ¶ndÃ¼rÃ¼r.
+		# `DATEFROMPARTS(yÄ±l, ay, gÃ¼n)`: Verilen tamsayÄ± deÄŸerlerinden bir tarih oluÅŸturur.
+		# `ISDATE('ifade')`: Verilen ifadenin geÃ§erli bir tarih olup olmadÄ±ÄŸÄ±nÄ± kontrol eder (1 veya 0 dÃ¶ner).
 */
-/*1-)DATEDIFF()*/
+/*1-)DATEDIFF() ile Ã§alÄ±ÅŸanlarÄ±n yaÅŸÄ±nÄ±, kaÃ§ aydÄ±r ve kaÃ§ gÃ¼ndÃ¼r hayatta olduklarÄ±nÄ± bulma*/
 use Northwind
 go
-select FirstName + ' ' + LastName as 'Adı Soyadı', DATEDIFF(yy, BirthDate, GETDATE()) as Yıl, 
-DATEDIFF(mm, BirthDate, GETDATE()) as Ay, DATEDIFF(dd, BirthDate, GETDATE()) as Gün from Employees
-order by DATEDIFF(dd, BirthDate, GETDATE()) desc;
-/*1-)DATEADD()*/
+select 
+    FirstName + ' ' + LastName as 'AdÄ± SoyadÄ±', 
+    DATEDIFF(YEAR, BirthDate, SYSDATETIME()) as YÄ±l, 
+    DATEDIFF(MONTH, BirthDate, SYSDATETIME()) as Ay, 
+    DATEDIFF(DAY, BirthDate, SYSDATETIME()) as GÃ¼n 
+from Employees
+order by GÃ¼n desc;
+
+/*1-)DATEADD() ile sipariÅŸ tarihine 10 gÃ¼n ekleme*/
 use Northwind
 go
-select *, DATEADD(yy, 17, OrderDate) as "17 Yıl Sonra" from Orders;
-/*1-)DATENAME()*/
+select OrderDate, DATEADD(DAY, 10, OrderDate) as "Teslim Tarihi" from Orders;
+
+/*1-)DATENAME() ile haftanÄ±n gÃ¼nÃ¼nÃ¼ TÃ¼rkÃ§e olarak alma*/
 use Northwind
 go
-set language Turkish; /*Dil ayarını ayarlama*/
-select *, DATENAME(w, GETDATE()) as "Haftanın Günü Ustam!" from Orders;
+set language Turkish; /*Oturumun dilini TÃ¼rkÃ§e yapar*/
+select OrderDate, DATENAME(WEEKDAY, OrderDate) as "SipariÅŸ GÃ¼nÃ¼" from Orders;
 /*
-#SQL Server Functions
-	2-)Aggregate Functions - Kümeleme Fonksyionları
-	Warning - Uyarı
-	* Eğer sorguya, kümeleme yapılacak sütündan başka bir sütün daha eklenecek olursa; eklenen bu sütüna göre sorguyu
-	gruplamak gerekmektedir.
-	* Gruplama işlemine her sütunun dahil edilmesi gerekmektedir. "Group By" ifadesinde Aggregate Functions kullanılan sütündan
-	başka her sütun dahil edilmesi gerekmektedir.
-	* Aggregate Functions sadece sayısal veriler ile birlikte çalışırlar. Null değerleri dikkate almazlar.
-	* Aggregate Functions kullanılarak oluşturulan sonuçları içeren veriyi, filtreleme yaparken yani "where" ifadesi ile
-	kullanamayız. (Aggregate Functions ile de koşul yazılabilmektedir. İlerde göreceğimiz koşul yapısı ile where ile değil!)
-	* Sütunlara verilen takma(alias) isimler "Having" ile yapılamazlar.
-		#AVG(Values) Parametre olarak verilen değerlerin ortalamasını geriye dönderir.
-		#COUNT(Values) Parametre olarak verilen değerlerin kaç adet olduğunu geriye dönderir.
-		#SUM(Values) Parametre olarak verilen değerlerin toplamını geriye dönderir.
-		#MAX-MIN(Values) Parametre olarak verilen değerlerden en büyüğünü veya en küçüğünü geriye dönderir.
+#SQL Server FonksiyonlarÄ±
+	2-)KÃ¼meleme FonksiyonlarÄ± (Aggregate Functions)
+	Bir grup satÄ±r Ã¼zerinde hesaplama yaparak tek bir Ã¶zet deÄŸer dÃ¶ndÃ¼ren fonksiyonlardÄ±r. `GROUP BY` ifadesi ile birlikte kullanÄ±lÄ±rlar.
+	* `GROUP BY` kullanÄ±ldÄ±ÄŸÄ±nda, `SELECT` listesinde ya bir kÃ¼meleme fonksiyonu iÃ§inde yer almayan her sÃ¼tun `GROUP BY` listesinde de yer almalÄ±dÄ±r.
+	* KÃ¼meleme fonksiyonlarÄ± `NULL` deÄŸerleri dikkate almazlar (`COUNT(*)` hariÃ§).
+	* KÃ¼meleme fonksiyonlarÄ± ile oluÅŸturulan sonuÃ§larÄ± filtrelemek iÃ§in `WHERE` deÄŸil, `HAVING` kullanÄ±lÄ±r.
+		# `AVG(sÃ¼tun)`: SayÄ±sal bir sÃ¼tundaki deÄŸerlerin ortalamasÄ±nÄ± dÃ¶ndÃ¼rÃ¼r.
+		# `COUNT(sÃ¼tun)`: Bir sÃ¼tundaki `NULL` olmayan satÄ±rlarÄ±n sayÄ±sÄ±nÄ± dÃ¶ndÃ¼rÃ¼r. `COUNT(*)` ise tablodaki tÃ¼m satÄ±rlarÄ±n sayÄ±sÄ±nÄ± verir.
+		# `SUM(sÃ¼tun)`: SayÄ±sal bir sÃ¼tundaki deÄŸerlerin toplamÄ±nÄ± dÃ¶ndÃ¼rÃ¼r.
+		# `MAX(sÃ¼tun)` ve `MIN(sÃ¼tun)`: Bir sÃ¼tundaki en bÃ¼yÃ¼k ve en kÃ¼Ã§Ã¼k deÄŸeri dÃ¶ndÃ¼rÃ¼r.
 */
-/*2-)AVG()*/
+/*Ã‡alÄ±ÅŸanlarÄ±n yaÅŸ ortalamasÄ±*/
 use Northwind
 go
-select AVG(DATEDIFF(YEAR, BirthDate, GETDATE())) as 'AKP Kadrosu Yaş Ortalaması' from Employees;
-/*3-)COUNT()*/
+select AVG(DATEDIFF(YEAR, BirthDate, SYSDATETIME())) as 'YaÅŸ OrtalamasÄ±' from Employees;
+
+/*Her ÅŸehirdeki Ã§alÄ±ÅŸan sayÄ±sÄ±nÄ± bulma ve sayÄ±yÄ± gÃ¶re sÄ±ralama*/
 use Northwind
 go
-select City as Şehirler, COUNT(City) as 'Çalışan Sayısı' 
-from Employees Group By City Order by COUNT(City) asc;
+select City as Åehir, COUNT(*) as 'Ã‡alÄ±ÅŸan SayÄ±sÄ±' 
+from Employees 
+Group By City 
+Order by 'Ã‡alÄ±ÅŸan SayÄ±sÄ±' desc;
 /*
-#SQL Server Functions
-	3-)Scalar Functions - Skaler Fonksyionlar
-		3.1-)String Functions - Dize Fonksiyonları
-			#UPPER(String) İçerisine verilen metinin tüm harflerini büyüterek geriye dönderir.
-			#LOWER(String) İçerisine verilen metinin tüm harflerini küçülterek geriye dönderir.
-			#SUBSTRING(String text, int PartCount, int StartingPart) Parametre olarak verilen text'in PartCount parametresinde
-			verilen değer kadar; StartingPart parametresinde verilen değerden başlayarak alt string geriye dönderir.
-			#LEN(String) Parametre olarak verilen string'in uzunluğunu geriye dönderir.
-			#ROUND(Double value, var RoundCount) Parametre olarak verilen value değerini RoundCount kadar yuvarlayarak geriye
-			dönderir.
-			#ASCII(Char) veya UNICODE(Char) Paremtre olarak verilen karakterin ASCII veya UNICODE kodunu geriye dönderir.
-			#CHAR(Code) Parametre olarak verilen karakter kodunu karaktere çevirerek geriye dönderir.
-			Araştır daha fazlası var.
-			#STR(FloatNumber, FloatNumberCharCount, CutCount) Parametre olarak verilen FloatNumber ondalıklı sayısından CutCount
-			kadar soldan karakter kesmek için kullanılır. Buradaki FloatNumberCharCount FloatNumber ondalıklı sayısının karakter
-			sayısına eşittir.
+#SQL Server FonksiyonlarÄ±
+	3-)Metinsel Fonksiyonlar (String Functions)
+		# `UPPER(metin)` ve `LOWER(metin)`: Metni tamamen bÃ¼yÃ¼k veya kÃ¼Ã§Ã¼k harfe Ã§evirir.
+		# `SUBSTRING(metin, baÅŸlangÄ±Ã§, uzunluk)`: Metnin belirtilen pozisyonundan baÅŸlayarak belirtilen uzunlukta bir parÃ§asÄ±nÄ± alÄ±r.
+		# `LEN(metin)`: Metnin karakter uzunluÄŸunu dÃ¶ndÃ¼rÃ¼r (sondaki boÅŸluklar hariÃ§).
+		# `DATALENGTH(metin)`: Metnin byte cinsinden uzunluÄŸunu dÃ¶ndÃ¼rÃ¼r (Unicode karakterler 2 byte yer kaplar).
+		# `LEFT(metin, sayÄ±)` ve `RIGHT(metin, sayÄ±)`: Metnin solundan veya saÄŸÄ±ndan belirtilen sayÄ±da karakter alÄ±r.
+		# `CHARINDEX(aranan, metin, [baÅŸlangÄ±Ã§])`: Bir metin iÃ§inde baÅŸka bir metnin baÅŸlangÄ±Ã§ pozisyonunu arar.
+		# `REPLACE(metin, eski_deÄŸer, yeni_deÄŸer)`: Metin iÃ§indeki bir karakter dizisini baÅŸka birisiyle deÄŸiÅŸtirir.
+		# `TRIM(metin)`, `LTRIM(metin)`, `RTRIM(metin)`: Metnin baÅŸÄ±ndaki, sonundaki veya her iki tarafÄ±ndaki boÅŸluklarÄ± temizler.
+		# `CONCAT(metin1, metin2, ...)`: Birden fazla metni birleÅŸtirir. `+` operatÃ¶rÃ¼nden farkÄ±, `NULL` bir deÄŸerle birleÅŸince sonucu `NULL` yapmaz, `NULL`'Ä± boÅŸ metin gibi kabul eder.
+		# `STRING_SPLIT(metin, ayraÃ§)`: Bir metni belirtilen ayraca gÃ¶re bÃ¶lerek tek sÃ¼tunlu bir tablo olarak dÃ¶ndÃ¼rÃ¼r. (SQL Server 2016 ve sonrasÄ±)
 */
 /*
 #HAVING
-	Bir sorguda Group By kullanılmış ise where kullanılamaz. Where yerine having kullanılır.
-	Warning - Uyarı
-		* Eğer sorguda koşul işlemi, işlem yapılan sütunun sonucuna göre olacaksa; Having ifadesinde işlem yapılan sütunun takma
-		adı kullanılamaz, işlem için yazılan sorgu kodları tekrar yazılır.
-		* Koşul işemli, işlem yapılan sütuna göre değilse; sütun adı aynen yazılmalıdır. Yani Having ifadesi kullanıldığında
-		sütunun orijinal adı yazılmalıdır.
+	`GROUP BY` ile gruplanmÄ±ÅŸ veriler Ã¼zerinde filtreleme yapmak iÃ§in kullanÄ±lÄ±r. `WHERE` ifadesi gruplama yapÄ±lmadan Ã¶nce satÄ±rlarÄ± filtrelerken, `HAVING` gruplama yapÄ±ldÄ±ktan sonra gruplarÄ± filtreler. Bu nedenle `HAVING` iÃ§inde kÃ¼meleme fonksiyonlarÄ± kullanÄ±labilir.
 */
+/*Her bir kategorideki Ã¼rÃ¼n sayÄ±sÄ±nÄ± bulan ve sadece Ã¼rÃ¼n sayÄ±sÄ± 10'dan fazla olan kategorileri listeleyen sorgu.*/
+use Northwind
+go
+select 
+    C.CategoryName, 
+    COUNT(P.ProductID) as 'ÃœrÃ¼n SayÄ±sÄ±'
+from 
+    Products P
+join 
+    Categories C on P.CategoryID = C.CategoryID
+group by 
+    C.CategoryName
+having 
+    COUNT(P.ProductID) > 10;
 /*
-#SQL Server Functions
-	4-)SET STATEMENT - İfade Belirleme
-		#Set DateFirst value Haftanın ilk gününü belirlemek için kullanılır.
-		#Set RowCount value Sorguda kaç satırın değerinin dönderileceğini sınırlar. 0 yazarsak sınırlama kalkar.
-		#Set DateFormat value(DMY bizde) Varsayılan tarih formatını değiştirmek için kullanılır.
-		#Set CONCAT_NULL_YIELDS_NULL booleanValue Null ile birleşimin sonucunun Null olmasını istiyorsak bu ifade on, tersi için
-		ise off olması gerekir.
-		#Set Language Region Dil belirlemek için kullanılır.
-			Set edilen değeri @@LANGID ile sayısal olarak elde edilir. @@LANGUAGE ile de metinsel olarak elde edilir.
-		#@@MaxConnection Veri tabanına bağlantı sayısını Dönderir.
-		#@@ServerName Server ismi elde etmek için kullanılır.
-		#@@ServiceName Servis adını elde etmek için kullanılır.
-		#@@MicrosoftVersion Microsoft versiyonunun elde etmek için kullanılır.
+#SQL Server FonksiyonlarÄ±
+	4-)SET Ä°fadeleri ve Sistem FonksiyonlarÄ±
+		# `SET DATEFIRST [1-7]`: HaftanÄ±n ilk gÃ¼nÃ¼nÃ¼ belirler (1: Pazartesi, 7: Pazar).
+		# `SET LANGUAGE [dil]`: Oturum iÃ§in dil ayarÄ±nÄ± deÄŸiÅŸtirir. Hata mesajlarÄ± ve tarih formatlarÄ± bu ayara gÃ¶re ÅŸekillenir.
+		# `@@ROWCOUNT`: Son Ã§alÄ±ÅŸtÄ±rÄ±lan ifadeden etkilenen satÄ±r sayÄ±sÄ±nÄ± dÃ¶ndÃ¼rÃ¼r.
+		# `@@ERROR`: Son Ã§alÄ±ÅŸtÄ±rÄ±lan T-SQL ifadesinde bir hata oluÅŸtuysa hata numarasÄ±nÄ±, oluÅŸmadÄ±ysa 0 deÄŸerini dÃ¶ndÃ¼rÃ¼r.
+		# `@@IDENTITY`: Bir `INSERT` ifadesiyle en son oluÅŸturulan identity (otomatik artan) deÄŸerini dÃ¶ndÃ¼rÃ¼r.
+		# `@@SERVERNAME`: Sunucunun adÄ±nÄ± dÃ¶ndÃ¼rÃ¼r.
+		# `@@VERSION`: SQL Server sÃ¼rÃ¼m bilgilerini dÃ¶ndÃ¼rÃ¼r.
 */
 
 set language Turkish;
-select @@LANGUAGE;
+select @@LANGUAGE as 'Oturum Dili';
 /*
-#SQL Server Functions
-	5-)Defined From User Functions - Kullanıcı Tarafından Oluşturulan Fonksiyonlar
-		Fonksiyonlar geriye değer döndürme özelliği olan yapılardır. Stored Procedure, sorgu içerisinde kullanılamazken,
-	fonksiyonlar sorgu içerisinde de kullanılabilir. Geriye bir değer veya tablo döndürebilirler. View ile sağlanan tablo
-	yapısından farklı olarak, parametre alan bir yapıya sahiplerdir.
-	Warning - Uyarı
-		* Fonksiyonlar Insert, Update, Delete işlemi yapamazlar fakat Insert, Update, Delete sorgularının içerisinde yer alabilir.
-		* Fonksiyon kullanırken dbo(Schema) belirtilmelidir.
+#SQL Server FonksiyonlarÄ±
+	5-)KullanÄ±cÄ± TanÄ±mlÄ± Fonksiyonlar (User-Defined Functions - UDF)
+		Belirli bir iÅŸi yapmak Ã¼zere oluÅŸturulan ve bir deÄŸer veya bir tablo dÃ¶ndÃ¼rebilen yeniden kullanÄ±labilir kod bloklarÄ±dÄ±r.
+		- **Skaler Fonksiyonlar (Scalar Functions):** Tek bir deÄŸer (int, nvarchar, money vb.) dÃ¶ndÃ¼rÃ¼rler.
+		- **Tablo DeÄŸerli Fonksiyonlar (Table-Valued Functions):** Geriye bir tablo dÃ¶ndÃ¼rÃ¼rler.
+	UyarÄ±lar:
+		* Fonksiyonlar iÃ§inde `INSERT`, `UPDATE`, `DELETE` gibi veri deÄŸiÅŸtirme iÅŸlemleri yapÄ±lamaz (yan etkiye (side effect) izin verilmez).
+		* FonksiyonlarÄ± Ã§aÄŸÄ±rÄ±rken genellikle schema adÄ±yla (`dbo.`) birlikte Ã§aÄŸÄ±rmak en iyi pratiktir.
 */
-/*Defining User Function*/
+/*Skaler Fonksiyon TanÄ±mlama: KDV'li fiyat hesaplama*/
 use Northwind
 go
-Create Function Calculate_KDV
-(@price money, @kdvRate float)
+Create Function dbo.Calculate_KDV
+(
+    @price money, 
+    @kdvRate float
+)
 returns money
+as
 Begin
-return @price + (@price * @kdvRate)
+    return @price * (1 + @kdvRate);
 End
 go
 Declare @kdvRate float = 0.18;
-select OrderID as ID, UnitPrice as 'KDV Olmadan Birim Fiyat', dbo.Calculate_KDV(UnitPrice, @kdvRate)
-as 'KDV Dahil Birim Fiyat' from [Order Details]
-/*Returning Table Functions*/
+select 
+    OrderID as ID, 
+    UnitPrice as 'KDV HariÃ§ Fiyat', 
+    dbo.Calculate_KDV(UnitPrice, @kdvRate) as 'KDV Dahil Fiyat' 
+from [Order Details];
+
+/*Tablo DeÄŸerli Fonksiyon TanÄ±mlama: Åirket adÄ±na gÃ¶re mÃ¼ÅŸteri listeleme*/
 use Northwind
 go
-Create Function ListCustomer
-(@CompanyName NVARCHAR(40))
+Create Function dbo.ListCustomersByCompanyName
+(
+    @CompanyName NVARCHAR(40)
+)
 returns Table
-return (select * from Customers where CompanyName = @CompanyName)
+as
+return (select * from Customers where CompanyName like '%' + @CompanyName + '%');
 go
-select * from dbo.ListCustomer('Alfreds Futterkiste')
+select * from dbo.ListCustomersByCompanyName('Alfreds');
 /*
-#KOŞUL YAPILARI
-	1-)Case When Then
-		SQL Server'da şartlara bağlı bir kontrol gerçekleştirmek için bu yapıdan yararlanabiliriz.
-		Kullanım
-			a-) Eşitlik Kontrolü Yapılacaksa
-				Case <Kontrolü Yapılacak Veri>
-				When <Eşit Olması Beklenen Değer>
-				Then <Şart Sağlandığında Yapılacak İşlem>
-				End
-			b-) Eşitlik Kontrolü Yapılmayacaksa
-				Case When <Kontrolü Yapılacak Veri> <Kontrol Cümlesi>
-				Then <Şart Sağlandığında Yapılacak İşlem>
-				End
+#KOÅUL YAPILARI
+	1-)CASE ... WHEN ... THEN ... END
+		FarklÄ± koÅŸullara gÃ¶re farklÄ± sonuÃ§lar dÃ¶ndÃ¼rmek iÃ§in kullanÄ±lÄ±r. `SELECT` listesinde veya `ORDER BY` ifadesinde sÄ±kÃ§a kullanÄ±lÄ±r.
+		KullanÄ±m:
+			a-) Basit CASE (EÅŸitlik KontrolÃ¼):
+				CASE <Kontrol Edilecek SÃ¼tun>
+					WHEN <DeÄŸer1> THEN <SonuÃ§1>
+					WHEN <DeÄŸer2> THEN <SonuÃ§2>
+					ELSE <DiÄŸer Durumlar Ä°Ã§in SonuÃ§>
+				END
+			b-) Aranan CASE (KarmaÅŸÄ±k KoÅŸullar):
+				CASE
+					WHEN <KoÅŸul1> THEN <SonuÃ§1>
+					WHEN <KoÅŸul2> THEN <SonuÃ§2>
+					ELSE <DiÄŸer Durumlar Ä°Ã§in SonuÃ§>
+				END
 */
-/*Case When Then Ürün kategorilerinin Türkçe karşılıkları ile listelenmesi ve kontrol edilen değerin eşitlik durumuna bakma*/
+/*ÃœrÃ¼n kategorilerinin TÃ¼rkÃ§e karÅŸÄ±lÄ±klarÄ± ile listelenmesi*/
 use Northwind
 go
-select CategoryName as 'İngiliççe Kategori İsmi', Description as 'Açıklama',
-case CategoryName
-when 'Beverages' then 'İçecekler'
-when 'Condiments' then 'Bal'
-when 'Confections' then 'Şekerlemeler'
-when 'Dairy Products' then 'Süt Ürünleri'
-when 'Grains/Cereals' then 'Tahıllar'
-when 'Meat/Poultry' then 'Et ve Tavuk Ürünleri'
-when 'Produce' then 'İmalat'
-when 'Seafood' then 'Deniz Ürünleri'
-else 'Unknown'
-end as 'Kategori İsmi'
-from Categories order by CategoryName desc;
-/*Case When Then Using With Variable*/
-go
-declare @value int = 5;
-set @value = case (select @value)
-when 5 then 3
-end
-print(@value)
-go
+select 
+    CategoryName as 'Ä°ngilizce Kategori Ä°smi', 
+    case CategoryName
+        when 'Beverages' then 'Ä°Ã§ecekler'
+        when 'Condiments' then 'Ã‡eÅŸniler'
+        when 'Confections' then 'Åekerlemeler'
+        when 'Dairy Products' then 'SÃ¼t ÃœrÃ¼nleri'
+        when 'Grains/Cereals' then 'TahÄ±llar'
+        when 'Meat/Poultry' then 'Et ve KÃ¼mes HayvanlarÄ±'
+        when 'Produce' then 'Meyve & Sebze'
+        when 'Seafood' then 'Deniz ÃœrÃ¼nleri'
+        else 'Bilinmiyor'
+    end as 'Kategori Ä°smi'
+from Categories;
 /*
-#KOŞUL YAPILARI
-	2-)IF EXISTS
-		Bir tabloda istediğimiz koşulu sağlayan kayıtların var olup olmadığını kontrol eder. Tablodo koşulu sağlayan değer değer
-	varsa true döner.
+#KOÅUL YAPILARI
+	2-)IF ... ELSE
+		Bir koÅŸulun sonucuna gÃ¶re farklÄ± T-SQL kod bloklarÄ±nÄ± Ã§alÄ±ÅŸtÄ±rmak iÃ§in kullanÄ±lÄ±r. `BEGIN` ve `END` bloklarÄ± ile birden fazla komut gruplanabilir.
+		`IF EXISTS (sorgu)` yapÄ±sÄ±, bir alt sorgunun en az bir satÄ±r dÃ¶ndÃ¼rÃ¼p dÃ¶ndÃ¼rmediÄŸini kontrol etmek iÃ§in sÄ±kÃ§a kullanÄ±lÄ±r.
 */
-/*Ürünler tablosunda Chai adlı bir ürün var mı?*/
+/*ÃœrÃ¼nler tablosunda 'Chai' adlÄ± bir Ã¼rÃ¼n var mÄ±?*/
 use Northwind
 go
-if exists(select * from Products where ProductName = 'Chai')
+if exists(select 1 from Products where ProductName = 'Chai')
 begin
-print('Chai isimli ürün bulunmaktadır!');
+    print 'Chai isimli Ã¼rÃ¼n bulunmaktadÄ±r!';
 end
 else
 begin
-print('Chai isimli ürün bulunmamaktadır!');
+    print 'Chai isimli Ã¼rÃ¼n bulunmamaktadÄ±r!';
 end
-/*If Exists Using With Variable*/
-go
-declare @value int = 99;
-if exists(select * where @value = 98)
-begin
-set @value = 77;
-end
-else
-begin
-set @value = 66;
-end
-print(@value);
-go
 /*
-#KOŞUL YAPILARI
-	3-)IIF
-		Direkt olarak bir koşul, koşul sağlandı ise ve koşul sağlanmadı ise değerleri alarak işlem yapar.
-		Kullanımı
-			IIF(Logical Expression, then procces, else procces)
+#KOÅUL YAPILARI
+	3-)IIF (Immediate IF)
+		`CASE` ifadesinin daha kÄ±sa bir versiyonudur. Bir mantÄ±ksal ifadenin sonucuna gÃ¶re iki deÄŸerden birini dÃ¶ndÃ¼rÃ¼r.
+		KullanÄ±mÄ±: `IIF(koÅŸul, doÄŸruysa_dÃ¶necek_deÄŸer, yanlÄ±ÅŸsa_dÃ¶necek_deÄŸer)`
 */
-/*Kategoriler tablosunda, kategori adı Beverages ise İçecekler değilse İçecek değil yazan sorgu*/
+/*Kategori adÄ± 'Beverages' ise 'Ä°Ã§ecek', deÄŸilse 'DiÄŸer' yazan sorgu*/
 use Northwind
 go
-select case CategoryName
-when 'Beverages' then 'İçecekler'
-when 'Condiments' then 'Bal'
-when 'Confections' then 'Şekerlemeler'
-when 'Dairy Products' then 'Süt Ürünleri'
-when 'Grains/Cereals' then 'Tahıllar'
-when 'Meat/Poultry' then 'Et ve Tavuk Ürünleri'
-when 'Produce' then 'İmalat'
-when 'Seafood' then 'Deniz Ürünleri'
-else 'Unknown'
-end as 'Kategori İsmi', Description as 'Açıklama', IIF(CategoryName = 'Beverages', 'İçecekler', 'İçecek Değil') as
-'Tür' from Categories
+select 
+    CategoryName, 
+    IIF(CategoryName = 'Beverages', 'Ä°Ã§ecek', 'DiÄŸer') as 'TÃ¼r' 
+from Categories;
 /*
 JOIN
-	Birden fazla tablodaki ilişkisel verileri sorgularken Join ifadelerinden yararlanırız. Birbiri ile ilişkili olan tabloların
-verileri Join ile birleştirilerek, tüm verileri bir araya getirebiliriz.
-	1-)Inner Join: Join ifadesinde kullanılan tablolarda, sadece eşleşen kayıtlar listelenir.
-	2-)Left Join: Soldaki tablodan tüm kayıtlar listelenir. Sağdaki tablodan ise sadece eşleşen kayıtlar listelenir.
-	3-)Right Join: Sağdaki tablodan tüm kayıtlar listelenir. Soldaki kayıttan sadece eşleşen kayıtlar listelenir.
-	4-)Outter Join: Her iki tablodan tüm kayıtlar listelenir. Eşleşen kayıtlar yan yana gösterilir. Eşleşmeyen kayıtlar için
-	ise sütünlar boş bıraklır.
-	5-)Full Join: Her iki tablodan eşleşen ve eşleşmeyen kayıtlar listelenir. Eşleşmeyen sütünlar boş bırakılır.
+	Ä°ki veya daha fazla tabloyu, aralarÄ±ndaki iliÅŸkili sÃ¼tunlar Ã¼zerinden birleÅŸtirerek tek bir sonuÃ§ kÃ¼mesi oluÅŸturmak iÃ§in kullanÄ±lÄ±r.
+	1-)INNER JOIN (veya sadece JOIN): Her iki tabloda da eÅŸleÅŸen kayÄ±tlarÄ± getirir.
+	2-)LEFT JOIN (veya LEFT OUTER JOIN): Soldaki tablodan tÃ¼m kayÄ±tlarÄ±, saÄŸdaki tablodan ise sadece eÅŸleÅŸen kayÄ±tlarÄ± getirir. EÅŸleÅŸme olmayanlar iÃ§in saÄŸdaki tablonun sÃ¼tunlarÄ± `NULL` olur.
+	3-)RIGHT JOIN (veya RIGHT OUTER JOIN): SaÄŸdaki tablodan tÃ¼m kayÄ±tlarÄ±, soldaki tablodan ise sadece eÅŸleÅŸen kayÄ±tlarÄ± getirir. EÅŸleÅŸme olmayanlar iÃ§in soldaki tablonun sÃ¼tunlarÄ± `NULL` olur.
+	4-)FULL OUTER JOIN: Her iki tablodaki tÃ¼m kayÄ±tlarÄ± getirir. EÅŸleÅŸenleri yan yana, eÅŸleÅŸmeyenleri ise diÄŸer taraf `NULL` olacak ÅŸekilde gÃ¶sterir.
+	5-)CROSS JOIN: Ä°ki tablonun kartezyen Ã§arpÄ±mÄ±nÄ± oluÅŸturur. Yani, soldaki tablonun her bir satÄ±rÄ±nÄ± saÄŸdaki tablonun her bir satÄ±rÄ±yla eÅŸleÅŸtirir. Genellikle bir `ON` koÅŸulu kullanÄ±lmaz.
 */
-/*Inner Join Ürünlerin kategori adlarına göre listelenmesi*/
+/*INNER JOIN: ÃœrÃ¼nleri kategori adlarÄ±yla birlikte listeleme*/
 use Northwind
 go
-select case C.CategoryName 
-when 'Beverages' then 'İçecekler'
-when 'Condiments' then 'Bal'
-when 'Confections' then 'Şekerlemeler'
-when 'Dairy Products' then 'Süt Ürünleri'
-when 'Grains/Cereals' then 'Tahıllar'
-when 'Meat/Poultry' then 'Et ve Tavuk Ürünleri'
-when 'Produce' then 'İmalat'
-when 'Seafood' then 'Deniz Ürünleri'
-else 'Unknown'
-end as 'Kategori İsmi', P.ProductName as 'Ürün İsmi' from Products P Join Categories C 
-on P.CategoryID = C.CategoryID;
-/*Left Join*/
+select 
+    P.ProductName as 'ÃœrÃ¼n Ä°smi',
+    C.CategoryName as 'Kategori Ä°smi'
+from 
+    Products P 
+inner join 
+    Categories C on P.CategoryID = C.CategoryID;
+
+/*LEFT JOIN: HiÃ§ sipariÅŸi olmayan mÃ¼ÅŸterileri bulma*/
 use Northwind
 go
-select P.ProductName as 'Ürün İsmi', case C.CategoryName 
-when 'Beverages' then 'İçecekler'
-when 'Condiments' then 'Bal'
-when 'Confections' then 'Şekerlemeler'
-when 'Dairy Products' then 'Süt Ürünleri'
-when 'Grains/Cereals' then 'Tahıllar'
-when 'Meat/Poultry' then 'Et ve Tavuk Ürünleri'
-when 'Produce' then 'İmalat'
-when 'Seafood' then 'Deniz Ürünleri'
-else 'Unknown'
-end as 'Kategori İsmi' from Products P Left Join Categories C 
-on P.CategoryID = C.CategoryID;
+select 
+    C.CustomerID,
+    C.CompanyName
+from 
+    Customers C
+left join 
+    Orders O on C.CustomerID = O.CustomerID
+where
+    O.OrderID is null; -- SipariÅŸi olmayanlar (eÅŸleÅŸme olmayanlar)
 /*
-Information Schema
-	Tablolar için varsayılan Schema dbo dur.
+Information Schema Views
+	Bir veritabanÄ±ndaki meta verileri (tablolar, sÃ¼tunlar, kÄ±sÄ±tlayÄ±cÄ±lar vb. hakkÄ±nda bilgiler) sorgulamak iÃ§in kullanÄ±lan standart bir view setidir.
 */
-/*Listing Northwind Database's Tables*/
+/*Northwind veritabanÄ±ndaki tÃ¼m kullanÄ±cÄ± tablolarÄ±nÄ± listeleme*/
 go
-select * from Northwind.INFORMATION_SCHEMA.TABLES order by TABLE_TYPE asc;
+select TABLE_NAME, TABLE_TYPE from Northwind.INFORMATION_SCHEMA.TABLES where TABLE_TYPE = 'BASE TABLE';
+
+/*Bir tablonun tÃ¼m kÄ±sÄ±tlayÄ±cÄ±larÄ±nÄ± (constraints) listeleme*/
+use Northwind
+go
+select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS where TABLE_NAME = 'Orders';
 
 /*
-Constraint
-	Veritabanına eklenen verilerin tutarlılığını sağlamak üzere, tabloya girilecek verilerin girşini sınırlandıran yapılardır.
+Pencereleme FonksiyonlarÄ± (Window Functions)
+	`OVER()` ifadesi ile birlikte kullanÄ±lan, mevcut satÄ±rla iliÅŸkili bir dizi satÄ±r (pencere) Ã¼zerinde hesaplama yapan fonksiyonlardÄ±r. KÃ¼meleme fonksiyonlarÄ±ndan farkÄ±, satÄ±rlarÄ± tek bir satÄ±ra indirgemezler, her satÄ±r iÃ§in bir sonuÃ§ Ã¼retirler.
+	`DENSE_RANK()`, `RANK()`, `ROW_NUMBER()`, `NTILE()` gibi sÄ±ralama fonksiyonlarÄ± ve `LEAD()`, `LAG()` gibi kaydÄ±rma fonksiyonlarÄ± bu gruba girer.
 */
-
-/*Constraint Listesini Sorgulamak*/
+/*DENSE_RANK(): Ã‡alÄ±ÅŸanlarÄ± unvanlarÄ±na gÃ¶re gruplayÄ±p her gruba bir sÄ±ra numarasÄ± verir. AynÄ± unvanlar aynÄ± numarayÄ± alÄ±r ve arada boÅŸluk olmaz.*/
 use Northwind
 go
-select * from INFORMATION_SCHEMA.TABLE_CONSTRAINTS;
-
-/*Getting User Name*/
-select SUSER_NAME(1) Kullanıcı1;
-select SUSER_NAME(2) Kullanıcı2;
-select SUSER_NAME(3) Kullanıcı3;
-select SUSER_NAME(4) Kullanıcı4;
-select SUSER_NAME(5) Kullanıcı5;
-select SUSER_NAME(6) Kullanıcı6;
-select SUSER_NAME(7) Kullanıcı7;
-select SUSER_NAME(8) Kullanıcı8;
-select SUSER_NAME(9) Kullanıcı9;
-select SUSER_NAME(10) Kullanıcı10;
-
-/*Getting User Roles*/
-use Northwind
-go
-select * from sys.server_principals where type_desc in('SQL_LOGIN', 'WINDOWS_LOGIN') and name not like 'NT%'
-
-/*Getting SQL Version*/
-select name, compatibility_level from sys.databases;
-
-/*DENSE_RANK()*/
-/*
-Warning - Uyarı
-	over ve order by ifadeleri olmadan kullanılamamaktadır.
-*/
-use Northwind
-go
-select DENSE_RANK() over (order by TitleOfCourtesy) as 'Group Number', TitleOfCourtesy ,FirstName + ' ' + LastName from Employees
+select 
+    DENSE_RANK() over (order by TitleOfCourtesy) as 'Grup NumarasÄ±', 
+    TitleOfCourtesy,
+    FirstName + ' ' + LastName as 'AdÄ± SoyadÄ±'
+from Employees;
